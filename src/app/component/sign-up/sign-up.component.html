@@ -1,13 +1,18 @@
-<form [formGroup]="signUpForm" (ngSubmit)="submitFormSignUp()">
-
-    <div>
-        <label for="username">UserName</label>
-        <input type="text" name="username" formControlName="username" >
-    </div>
-
-    <div>
-        <label for="password">Password</label>
-        <input type="text" name="password" formControlName="password">
-    </div>
-<button type="submit">Save</button>
-</form>
+<div class="signUpContainer">
+  <img class="bacgroundImage" src="../../../assets/bacground-signUp.jpg" alt="">
+    <form class="form" [formGroup]="signUpForm" (ngSubmit)="submitFormSignUp()">
+        <div class="userName">
+            <input type="text" name="username" formControlName="username" placeholder="Username" >
+            <div *ngIf="signUpForm.get('username').invalid">
+                <small class="error-message">Username is required.</small>
+              </div>
+        </div>
+        <div class="password">
+            <input type="text" name="password" formControlName="password" placeholder="Password" required>
+            <div *ngIf="this.signUpForm.get('password').invalid">
+                <small class="error-message">Password is required</small>
+            </div>
+        </div>
+    <button class="buttonSave" type="submit" [routerLink]="['/login']" [disabled]="!this.signUpForm.valid">Save</button>
+    </form>
+</div>

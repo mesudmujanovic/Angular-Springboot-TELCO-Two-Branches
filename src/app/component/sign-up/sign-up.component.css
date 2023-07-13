@@ -1,0 +1,75 @@
+.signUpContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 97vh;
+}
+
+.bacgroundImage{
+    position: absolute;
+    width: 70%;
+    height: 100%;
+    left: 0;
+}
+
+.form {
+    width: 240px;
+    height: 300px;
+    position: absolute;
+    top: 30%;
+    left: 60%;
+    z-index: 222;
+    background-color: black;
+    opacity: 0.8;
+    border: 2px solid aqua;
+    border-radius: 30px;
+}
+
+.userName {
+    color: aqua;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 15px;
+}
+
+.password {
+    margin: 15px;
+    color: aqua;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+
+.buttonSave {
+    background-color: black;
+    position: absolute;
+    left: 30%;
+    width: 100px;
+    border-radius: 10px;
+    padding: 5px;
+    color: aqua;
+    border: 1px solid aqua;
+    cursor: pointer;
+}
+
+.buttonSave:hover{
+    background-color: aqua;
+    color: black;
+    border: 1px solid black;
+}
+
+
+input{
+    margin-top: 50px;
+    padding: 5px;
+    border: 2px solid aqua;
+}
+
+.error-message{
+    color: red;
+    font-size: 12px;
+}
+

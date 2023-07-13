@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable, catchError, of, tap } from 'rxjs';
-import { UserJWT } from '../../Interface/UserJWT';
+import { catchError, of, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { SignUpService } from '../../service/sign-up.service';
 
@@ -36,9 +35,11 @@ export class SignUpComponent {
       catchError(( error )=> {
         return of([])
       })
-     ).subscribe()
+     ).subscribe();
      }
    }
+
+
 
   
 
