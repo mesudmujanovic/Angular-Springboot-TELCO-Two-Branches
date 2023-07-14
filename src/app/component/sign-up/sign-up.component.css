@@ -4,9 +4,21 @@
     justify-content: center;
     align-items: center;
     height: 97vh;
+    
 }
 
-.bacgroundImage{
+.dimmed {
+    opacity: 0.3;
+  }
+  
+  
+  .dimmed .signUpContainer {
+    opacity: 0.3;
+  }
+  
+  
+
+.bacgroundImage {
     position: absolute;
     width: 70%;
     height: 100%;
@@ -19,15 +31,13 @@
     position: absolute;
     top: 25%;
     left: 60%;
-    z-index: 222;
     background-color: black;
-    opacity: 0.8;
-    /* border: 2px solid aqua; */
+    border: 2px solid aqua;
     border-radius: 30px;
 }
 
 .userName {
-    /* color: aqua; */
+    color: aqua;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -36,12 +46,11 @@
 
 .password {
     margin: 15px;
-    /* color: aqua; */
+    color: aqua;
     display: flex;
     flex-direction: column;
     text-align: center;
 }
-
 
 .buttonSave {
     background-color: black;
@@ -55,21 +64,55 @@
     cursor: pointer;
 }
 
-.buttonSave:hover{
+.buttonSave:hover {
     background-color: aqua;
     color: black;
     border: 1px solid black;
 }
 
-
-input{
-    margin-top: 25px;
+.buttonLogin {
+    background-color: black;
+    position: absolute;
+    left: 30%;
+    top: 80%;
+    width: 100px;
+    border-radius: 10px;
     padding: 5px;
-    /* border: 2px solid aqua; */
+    color: aqua;
+    border: 1px solid aqua;
+    cursor: pointer;
 }
 
-.error-message{
+.buttonLogin:hover {
+    background-color: aqua;
+    color: black;
+}
+
+input {
+    margin-top: 25px;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid aqua;
+    outline: none;
+    background-color: black;
+    opacity: 0.8;
+    color: aqua;
+}
+ 
+.error-message {
     color: red;
     font-size: 12px;
 }
 
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 500px;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  
