@@ -12,20 +12,21 @@ import { SignUpService } from '../../service/sign-up.service';
 export class SignUpComponent {
 
   signUpForm: FormGroup;
+  isSubmitted: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
-    private http: HttpClient,
     private signUpService: SignUpService) {
 
     this.signUpForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
+      username: ['', [Validators.required, Validators.minLength(3)]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
     })
 
   }
 
   submitFormSignUp() {
    if( this.signUpForm.valid ) {
+    this.isSubmitted = true;
     const username = this.signUpForm.get('username')?.value;
     const password = this.signUpForm.get('password')?.value;
      this.signUpService.signUp( username, password ).pipe(
@@ -35,13 +36,9 @@ export class SignUpComponent {
       catchError(( error )=> {
         return of([])
       })
-     ).subscribe();
+     ).subscribe()
      }
    }
-
-
-
-  
 
   ngOnInit(){
 

@@ -17,17 +17,17 @@
     width: 240px;
     height: 300px;
     position: absolute;
-    top: 30%;
+    top: 25%;
     left: 60%;
     z-index: 222;
     background-color: black;
     opacity: 0.8;
-    border: 2px solid aqua;
+    /* border: 2px solid aqua; */
     border-radius: 30px;
 }
 
 .userName {
-    color: aqua;
+    /* color: aqua; */
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -36,7 +36,7 @@
 
 .password {
     margin: 15px;
-    color: aqua;
+    /* color: aqua; */
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -63,9 +63,9 @@
 
 
 input{
-    margin-top: 50px;
+    margin-top: 25px;
     padding: 5px;
-    border: 2px solid aqua;
+    /* border: 2px solid aqua; */
 }
 
 .error-message{
