@@ -4,19 +4,11 @@
     justify-content: center;
     align-items: center;
     height: 97vh;
-    
 }
 
 .dimmed {
     opacity: 0.3;
-  }
-  
-  
-  .dimmed .signUpContainer {
-    opacity: 0.3;
-  }
-  
-  
+}
 
 .bacgroundImage {
     position: absolute;
@@ -98,7 +90,7 @@ input {
     opacity: 0.8;
     color: aqua;
 }
- 
+
 .error-message {
     color: red;
     font-size: 12px;
@@ -107,12 +99,47 @@ input {
 .popup {
     position: fixed;
     top: 50%;
-    left: 50%;
-    width: 600px;
-    height: 500px;
+    left: 70%;
+    width: 250px;
+    height: 400px;
     transform: translate(-50%, -50%);
-    background-color: #fff;
     padding: 20px;
-    border: 1px solid #ccc;
-  }
-  
+    background-color: black;
+    border: 2px solid aqua;
+    border-radius: 30px;
+}
+
+h2 {
+    color: aqua;
+    text-align: center;
+}
+
+.loginCloseButton {
+    border: none;
+    background-color: black;
+}
+
+.loginCloseButton span {
+    cursor: pointer;
+}
+
+.loginCloseButton span {
+    position: absolute;
+    color: aqua;
+    font-size: 20px;
+    left: 0%;
+    top: 0%;
+    background-color: black;
+    width: 30px;
+    height: 30px;
+    border: 4px solid aqua;
+    border-radius: 50%;
+}
+
+.loginForm input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    text-align: center;
+}

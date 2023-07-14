@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignUpComponent } from './component/sign-up/sign-up.component';
-import { LoginComponent } from './component/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './component/home/home.component';
 
@@ -12,7 +11,6 @@ import { HomeComponent } from './component/home/home.component';
   declarations: [
     AppComponent,
     SignUpComponent,
-    LoginComponent,
     HomeComponent
   ],
   imports: [

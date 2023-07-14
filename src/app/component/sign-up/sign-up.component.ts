@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { catchError, of, tap } from 'rxjs';
 import { SignUpService } from '../../service/sign-up.service';
@@ -17,6 +17,7 @@ export class SignUpComponent {
   isSubmitted: boolean = false;
   showPopLogin: boolean = false;
 
+
   constructor(private formBuilder: FormBuilder,
     private signUpService: SignUpService,
     private router: Router,
@@ -28,8 +29,8 @@ export class SignUpComponent {
     })
 
     this.loginForm = this.formBuilder.group({
-      username: [ '', Validators.required ],
-      password: [ '', Validators.required ]
+      usernameLogin: ['', Validators.required],
+      passwordLogin: ['', Validators.required]
     })
 
   }
@@ -41,7 +42,7 @@ export class SignUpComponent {
       const password = this.signUpForm.get('password')?.value;
       this.signUpService.signUp(username, password).pipe(
         tap(response => {
-           this.router.navigate(['/login']) 
+          this.showPopLogin = true;
         }),
         catchError((error) => {
           return of([])
@@ -50,27 +51,25 @@ export class SignUpComponent {
     }
   }
 
-  loginFormOpen(){
-   this.showPopLogin = true
+  loginFormOpen() {
+    this.showPopLogin = true
   }
 
-  close(){
+  close() {
     this.showPopLogin = false
   }
 
-
-    onLogin(){
-      if( this.loginForm.valid ){
-        const username = this.loginForm.value.username;
-        const password = this.loginForm.value.password;
-        this.loginService.login( username, password ).pipe(
-          tap( response => {
-            console.log("response",response);
-            this.router.navigate(['/home'])
-          })
-        ).subscribe()
-      }
-  
+  onLogin() {
+    if (this.loginForm.valid) {
+      const username = this.loginForm.value.usernameLogin;
+      const password = this.loginForm.value.passwordLogin;
+      this.loginService.login(username, password).pipe(
+        tap(response => {
+          console.log("response", response);
+          this.router.navigate(['/home'])
+        })
+      ).subscribe()
+    }
   }
 
   ngOnInit() {
