@@ -1,4 +1,4 @@
-package com.Digital.Digital.Infrastructure.Response;
+package com.Digital.Digital.Infrastructure.Response.Jwt;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,10 +1,10 @@
 package com.Digital.Digital.Controllers;
 
 import com.Digital.Digital.Infrastructure.Dto.UserDto;
-import com.Digital.Digital.Infrastructure.Request.LoginRequest;
-import com.Digital.Digital.Infrastructure.Request.SignupRequest;
-import com.Digital.Digital.Infrastructure.Response.JwtResponse;
-import com.Digital.Digital.Infrastructure.Response.MessageResponse;
+import com.Digital.Digital.Infrastructure.Request.JwtRequest.LoginRequest;
+import com.Digital.Digital.Infrastructure.Request.JwtRequest.SignupRequest;
+import com.Digital.Digital.Infrastructure.Response.Jwt.JwtResponse;
+import com.Digital.Digital.Infrastructure.Response.Jwt.MessageResponse;
 import com.Digital.Digital.Security.Jwt.JwtUtils;
 import com.Digital.Digital.Security.Services.UserDetailsImpl;
 import com.Digital.Digital.Service.UserService;

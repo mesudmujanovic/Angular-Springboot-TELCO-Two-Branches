@@ -1,6 +1,6 @@
 package com.Digital.Digital.Infrastructure.Dto;
 
-import com.Digital.Digital.Infrastructure.Request.SignupRequest;
+import com.Digital.Digital.Infrastructure.Request.JwtRequest.SignupRequest;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
