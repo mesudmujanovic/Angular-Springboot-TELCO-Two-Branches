@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './component/home/home.component';
+import { CityComponent } from './component/city/city.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignUpComponent,
-    HomeComponent
+    HomeComponent,
+    CityComponent
   ],
   imports: [
     BrowserModule,

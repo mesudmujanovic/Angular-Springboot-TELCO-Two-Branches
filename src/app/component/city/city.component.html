@@ -1,0 +1,6 @@
+<p>city works!</p>
+<form [formGroup]="cityForm" (ngSubmit)="onAddCity()">
+    <label for="name">City</label>
+    <input type="text" name="name" formControlName="name">
+    <button type="submit">Save</button>
+</form>

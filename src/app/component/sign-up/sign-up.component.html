@@ -51,8 +51,13 @@
         </div>
         <div class="buttonContainer">
           <button type="submit" class="buttonLogin">Login</button>
+          <div class="loginError" *ngIf="showLoginError">
+            <h2>WRONG PASSWORD OR USERNAME</h2>
+              </div>
         </div>
       </form>
     </div>
   </div>
+<!-- Login error-->
+ 
 </div>

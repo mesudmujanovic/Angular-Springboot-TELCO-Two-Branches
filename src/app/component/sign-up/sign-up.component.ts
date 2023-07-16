@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { catchError, of, tap } from 'rxjs';
 import { SignUpService } from '../../service/sign-up.service';
@@ -16,6 +16,7 @@ export class SignUpComponent {
   loginForm: FormGroup
   isSubmitted: boolean = false;
   showPopLogin: boolean = false;
+  showLoginError: boolean = false;
 
 
   constructor(private formBuilder: FormBuilder,
@@ -67,6 +68,10 @@ export class SignUpComponent {
         tap(response => {
           console.log("response", response);
           this.router.navigate(['/home'])
+        }),
+        catchError(error => {
+          this.showLoginError = true;
+          return of([]);
         })
       ).subscribe()
     }
