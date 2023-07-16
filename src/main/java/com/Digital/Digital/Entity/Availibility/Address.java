@@ -18,7 +18,7 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Integer name;
+    private String name;
 
     @ManyToOne
     @JoinColumn(name = "city_id")

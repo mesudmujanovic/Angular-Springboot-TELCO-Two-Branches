@@ -10,7 +10,7 @@ public class AddressDto {
 
     private Long id;
 
-    private Integer name;
+    private String name;
 
     public static AddressDto addressRequestToDto(AddressRequest addressRequest){
         AddressDto addressDto = new AddressDto();

@@ -7,5 +7,5 @@ public class AddressResponse {
 
     private Long id;
 
-    private Integer name;
+    private String name;
 }

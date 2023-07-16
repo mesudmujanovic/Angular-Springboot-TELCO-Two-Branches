@@ -7,5 +7,5 @@ public class AddressRequest {
 
     private Long id;
 
-    private Integer name;
+    private String name;
 }
