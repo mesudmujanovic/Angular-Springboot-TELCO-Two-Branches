@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { catchError, of, tap } from 'rxjs';
+import { Observable, catchError, of, tap } from 'rxjs';
 import { CityService } from 'src/app/service/city.service';
+import { City } from '../Interface/city-interface';
 import { Address } from '../Interface/address-interface';
 
 @Component({
@@ -12,6 +13,10 @@ import { Address } from '../Interface/address-interface';
 export class CityComponent {
 
 cityForm: FormGroup;
+cityes: Observable<City[]>
+selectedCity: City| null;
+selectedAddress: Address | null
+
 constructor(private cityService: CityService,
   private formBuilder: FormBuilder){
   this.cityForm = this.formBuilder.group({
@@ -30,9 +35,37 @@ if( this.cityForm.valid ){
     catchError( error =>{
       return of([]);
     })
-  ).subscribe( e => console.log(e)
-  );
+  ).subscribe()
 }
+}
+
+allCitys(): Observable<City[]>{
+  return  this.cityService.getAllCityes().pipe(
+    tap( response =>{
+
+    }),
+    catchError( error =>{
+      return of([]);
+    })
+  )
+}
+
+onCityChange(){
+  
+  if( this.selectedCity ){
+    console.log("ngValue:", this.selectedCity);
+  console.log("ngModel:", this.selectedCity)
+    const filter = this.selectedCity.addressDtoList;
+    this.selectedAddress = filter.length > 0 ? filter[0] : null; 
+  }else{
+    this.selectedAddress = null;
+  }
+}
+
+ngOnInit(): void{
+ this.cityes = this.allCitys();
+ this.cityes.subscribe()
+  
 }
 
 }

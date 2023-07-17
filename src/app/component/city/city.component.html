@@ -1,6 +1,31 @@
-<p>city works!</p>
-<form [formGroup]="cityForm" (ngSubmit)="onAddCity()">
+
+
+<!-- <form [formGroup]="cityForm" (ngSubmit)="onAddCity()">
     <label for="name">City</label>
     <input type="text" name="name" formControlName="name">
     <button type="submit">Save</button>
-</form>
+</form> -->
+<div *ngIf="cityes | async as cities">
+    <div class="select-container">
+      <div>
+        <select [(ngModel)]="selectedCity" (change)="onCityChange()">
+          <option [ngValue]="null">Izaberite grad</option>
+          <option *ngFor="let city of cities" [ngValue]="city">{{city.name}}</option>
+        </select>
+      </div>
+      <div class="address-select">
+        <select [(ngModel)]="selectedAddress">
+          <option [ngValue]="null">Izaberite adresu</option>
+          <option *ngFor="let address of selectedCity?.addressDtoList" [ngValue]="address">{{address.name}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  
+  
+
+
+     
+
+  
+  

@@ -7,6 +7,7 @@ import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './component/home/home.component';
 import { CityComponent } from './component/city/city.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CityComponent } from './component/city/city.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

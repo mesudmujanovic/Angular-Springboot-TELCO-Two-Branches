@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { City } from '../component/Interface/city-interface';
 import { BASE_URL } from '../const/backend-url';
-import { Address } from '../component/Interface/address-interface';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +18,10 @@ export class CityService {
       addressDtoList:[]
     };
     return this.http.post<City>(`${BASE_URL}/saveCity`, city);
+  }
+
+  getAllCityes(): Observable<City[]>{
+   return this.http.get<City[]>(`${BASE_URL}/getAllCity`)
   }
   
 }
