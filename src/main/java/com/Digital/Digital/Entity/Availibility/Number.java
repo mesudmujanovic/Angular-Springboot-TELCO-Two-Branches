@@ -1,7 +1,6 @@
 package com.Digital.Digital.Entity.Availibility;
 
 
-import com.Digital.Digital.Entity.Availibility.Address;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,7 +17,7 @@ public class Number {
     @GeneratedValue( strategy = GenerationType.AUTO)
     private Long id;
 
-    private Integer num;
+    private String num;
 
     @ManyToOne
     @JoinColumn( name="address_id" )

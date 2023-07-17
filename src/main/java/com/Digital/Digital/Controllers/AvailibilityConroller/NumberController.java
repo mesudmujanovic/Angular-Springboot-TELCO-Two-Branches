@@ -21,7 +21,7 @@ public class NumberController {
         this.numberService = numberService;
     }
 
-    @PostMapping("/saveNumber/address/{addressId}")
+    @PostMapping("/saveNumber/{addressId}")
     private ResponseEntity<NumberResponse> saveNumber(@RequestBody NumberRequest numberRequest,
                                                       @PathVariable Long addressId){
         NumberDto numberDto = NumberDto.fromRequestToDto(numberRequest);

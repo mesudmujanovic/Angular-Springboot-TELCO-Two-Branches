@@ -8,5 +8,6 @@ public class NumberResponse {
 
     private Long id;
 
-    private Integer num;
+    private String num;
+
 }

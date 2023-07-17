@@ -6,5 +6,6 @@ import lombok.Data;
 public class NumberRequest {
     private Long id;
 
-    private Integer num;
+    private String num;
+
 }
