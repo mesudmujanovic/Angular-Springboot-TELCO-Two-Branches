@@ -1,0 +1,19 @@
+  
+  a{
+    color: white;
+    font-family: "Franklin Gothic Medium";
+    text-align: center;
+
+  }
+  
+  small:hover{
+    border-bottom: 2px solid white;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 567px) {
+    .container {
+      max-width: 450px;
+    }
+  }
+  

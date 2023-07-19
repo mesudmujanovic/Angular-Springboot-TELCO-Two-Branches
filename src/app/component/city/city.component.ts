@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable, catchError, of, tap } from 'rxjs';
 import { CityService } from 'src/app/service/city.service';
-import { City } from '../Interface/city-interface';
-import { Address } from '../Interface/address-interface';
-
+import { City } from '../../Interface/city-interface';
+import { Address } from '../../Interface/address-interface';
+import { Number } from '../../Interface/number-interface';
 @Component({
   selector: 'app-city',
   templateUrl: './city.component.html',
@@ -16,6 +16,11 @@ cityForm: FormGroup;
 cityes: Observable<City[]>
 selectedCity: City| null;
 selectedAddress: Address | null
+selectedNumber: Number | null;
+onSelectedCityFiled: boolean = false;
+onSelectedAddressFiled: boolean = false;
+onSelectedNumberFiled: boolean = false;
+
 
 constructor(private cityService: CityService,
   private formBuilder: FormBuilder){
@@ -51,14 +56,29 @@ allCitys(): Observable<City[]>{
 }
 
 onCityChange(){
-  
   if( this.selectedCity ){
-    console.log("ngValue:", this.selectedCity);
-  console.log("ngModel:", this.selectedCity)
+    this.onSelectedAddressFiled = true;
     const filter = this.selectedCity.addressDtoList;
-    this.selectedAddress = filter.length > 0 ? filter[0] : null; 
+    this.selectedAddress = filter.length > 0 ? filter[this.selectedCity.id] : null; 
   }else{
     this.selectedAddress = null;
+  }
+}
+
+onAddressChange(){
+  if( this.selectedAddress ){
+    this.onSelectedNumberFiled = true
+    console.log("ngModelNumber", this.selectedAddress);
+   const addressAll = this.selectedAddress.numberDtoList;
+   this.selectedNumber = addressAll.length > 0 ? addressAll[this.selectedAddress.id] : null;   
+  }else{
+    this.selectedNumber = null;
+  }
+}
+
+onNumberChange(){
+  if( this.selectedNumber ) {
+    console.log(this.selectedNumber);
   }
 }
 

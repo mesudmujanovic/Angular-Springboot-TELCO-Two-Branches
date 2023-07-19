@@ -1,0 +1,147 @@
+.wrap{
+  width: 1000px;
+}
+
+.container-naslov{
+  margin-top: 20px;
+  margin-left: 14px;
+  font-size: 25px;
+  font-family: "Franklin Gothic Medium";
+}
+
+small{
+  color: white;
+}
+
+.select-container{
+ display: flex;
+ flex-direction: column;
+ background-color: rgb(23, 149, 233)
+
+}
+
+.container-select{
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  margin: 15px;
+}
+
+.select-container p {
+  font-family: Franklin Gothic Medium;
+  color: white;
+}
+
+.city-select {
+  width: 300px;
+}
+
+.address-select {
+  width: 220px;
+}
+
+.number-select {
+  width: 100px;
+}
+
+.select-container p {
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+select[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+select:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.button-select {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+
+.proveriButton{
+  display: flex;
+  background-color: orange;
+  width:230px;
+  font-weight: bolder;
+  font-size: 18px;
+  position: relative;
+  bottom: 55px;
+  right: 30px;
+}
+
+@media screen and (max-width: 1000px) {
+
+
+  .button-select {
+    display: flex;
+    justify-content: start;
+    align-items: end;
+  }
+
+.proveriButton{
+  flex-direction: row;
+  background-color: orange;
+  width:230px;
+  font-weight: bolder;
+  font-size: 18px;
+  position: relative;
+  bottom: 5px;
+  left: 13px;
+}
+
+}
+
+@media screen and (max-width: 767px) { 
+
+  .wrap{
+    width: 760px;
+  }
+  
+  .container-naslov{
+  width: 760px;
+  
+  }
+
+  .city-select {
+    width: 140px;
+  }
+  
+  .address-select {
+    width: 140px;
+  }
+  
+  .number-select {
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 567px) { 
+
+.wrap{
+  width: 450px;
+}
+
+.container-naslov{
+  width: 450px;
+
+}
+
+.city-select {
+  width: 33%;
+}
+
+.address-select {
+  width: 33%;
+}
+
+.number-select {
+  width: 33%;
+}
+}

@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserJWT } from '../Interface/UserJWT';
 import { BACKEND_URL } from '../constants/Backend.url';
+import { UserJWT } from '../Interface/UserJWT';
 
 @Injectable({
   providedIn: 'root'

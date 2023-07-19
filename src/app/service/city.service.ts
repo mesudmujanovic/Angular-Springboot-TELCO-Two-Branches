@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { City } from '../component/Interface/city-interface';
+import { City } from '../Interface/city-interface';
 import { BASE_URL } from '../const/backend-url';
 
 @Injectable({

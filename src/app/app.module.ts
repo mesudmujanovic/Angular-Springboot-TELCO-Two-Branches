@@ -8,13 +8,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './component/home/home.component';
 import { CityComponent } from './component/city/city.component';
 import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from './component/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignUpComponent,
     HomeComponent,
-    CityComponent
+    CityComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

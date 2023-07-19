@@ -1,31 +1,42 @@
-
-
 <!-- <form [formGroup]="cityForm" (ngSubmit)="onAddCity()">
     <label for="name">City</label>
     <input type="text" name="name" formControlName="name">
     <button type="submit">Save</button>
 </form> -->
-<div *ngIf="cityes | async as cities">
-    <div class="select-container">
-      <div>
-        <select [(ngModel)]="selectedCity" (change)="onCityChange()">
+<div class="container wrap" *ngIf="cityes | async as cities">
+  <div class=" select-container">
+    <div class="container-naslov">
+      <small class="naslov">Proveri dostupnost na vašoj adresi</small>
+    </div>
+    <div class="container-select">
+      <div class="city-select sel">
+        <p class="text-white">Izaberi grad</p>
+        <select class="form-select" [(ngModel)]="selectedCity" (change)="onCityChange()">
           <option [ngValue]="null">Izaberite grad</option>
-          <option *ngFor="let city of cities" [ngValue]="city">{{city.name}}</option>
+          <option [ngValue]="city" *ngFor="let city of cities">{{city.name}}</option>
         </select>
       </div>
-      <div class="address-select">
-        <select [(ngModel)]="selectedAddress">
+      <div class="address-select sel">
+        <p>Izaberi adresu</p>
+        <select class="form-select" [(ngModel)]="selectedAddress" (change)="onAddressChange()"
+          [disabled]="!this.onSelectedAddressFiled">
           <option [ngValue]="null">Izaberite adresu</option>
           <option *ngFor="let address of selectedCity?.addressDtoList" [ngValue]="address">{{address.name}}</option>
         </select>
       </div>
+      <div class="number-select sel">
+        <p>Izaberi broj</p>
+        <select class="form-select" [(ngModel)]="selectedNumber" (change)="onNumberChange()"
+          [disabled]="!this.onSelectedNumberFiled">
+          <option [ngValue]="null">Izaberite broj</option>
+          <option *ngFor="let numbers of this.selectedAddress?.numberDtoList" [ngValue]="numbers">
+            {{numbers.num}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="button-select sel">
+      <button class="btn btn-primary proveriButton">Proveri Dostupnost</button>
     </div>
   </div>
-  
-  
-
-
-     
-
-  
-  
+</div>
