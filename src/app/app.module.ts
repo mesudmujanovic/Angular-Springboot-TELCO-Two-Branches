@@ -9,6 +9,7 @@ import { HomeComponent } from './component/home/home.component';
 import { CityComponent } from './component/city/city.component';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './component/navbar/navbar.component';
+import { TitleComponent } from './component/title/title.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NavbarComponent } from './component/navbar/navbar.component';
     SignUpComponent,
     HomeComponent,
     CityComponent,
-    NavbarComponent
+    NavbarComponent,
+    TitleComponent
   ],
   imports: [
     BrowserModule,

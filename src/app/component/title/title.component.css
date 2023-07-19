@@ -1,0 +1,120 @@
+.container {
+    display: flex;
+}
+
+.image-div {
+    position: relative;
+    width: 100%;
+}
+
+.container-text {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    height: 250px;
+    width: 30%;
+    background-color: rgba(23, 149, 233, 0.7);
+}
+
+.text-internet {
+    margin-left: 35px;
+    margin-top: 20px;
+    font-size: 35px;
+    color: rgba(255, 255, 255, 1);
+}
+
+.btn-primary {
+    position: absolute;
+    background-color: orange;
+    width: 100px;
+    bottom: 0;
+    left: 10%;
+    font-weight: bold;
+}
+
+.text-white {
+    margin-left: 35px;
+}
+
+.gratis {
+    position: absolute;
+    top: 30%;
+    left: 90%;
+    width: 150px;
+    height: 150px;
+    background-color: orange;
+    border-radius: 50%;
+}
+
+.gratis-p {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: center;
+    width: 100%;
+    height: 55%;
+}
+
+small {
+    margin-bottom: 10px;
+}
+
+small:hover {
+    background-color: blue;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+@media screen and (max-width: 1050px) {
+
+    .container-text {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 1050px), 
+       screen and (max-width: 950px) {
+  .container-text {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container-text {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .container {
+    width: 600px;
+  }
+
+  .container-text {
+    width: 55%;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  small {
+    color: red;
+  }
+
+  .container {
+    max-width: 450px;
+  }
+
+  .text-internet {
+    margin-left: 25px;
+    margin-top: 10px;
+    font-size: 20px;
+  }
+
+  .container-text {
+    width: 40%;
+  }
+}

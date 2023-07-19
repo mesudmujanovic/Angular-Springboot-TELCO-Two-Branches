@@ -105,7 +105,7 @@ select:focus {
   }
   
   .container-naslov{
-  width: 760px;
+  max-width: 760px;
   
   }
 
@@ -125,7 +125,7 @@ select:focus {
 @media screen and (max-width: 567px) { 
 
 .wrap{
-  width: 450px;
+  max-width: 450px;
 }
 
 .container-naslov{
