@@ -1,0 +1,20 @@
+<div class="slider">
+    <div class="arrow right-arrow" (click)="nextSlide()">&#10095;</div>
+    <div class="slide-container" [style.transform]="'translateX(' + (-currentIndex * 320) + 'px)'">
+    <div class="slides-wrap">
+        <div *ngFor="let div of divs" class="slide">
+            <div class="header">
+                <h3>{{ div.title }}</h3>
+            </div>
+            <div class="body">
+                <p>{{ div.content }}</p>
+            </div>
+            <div class="footer">
+               <h5>{{div.content}}</h5>
+            </div>
+          </div>
+       </div>
+    </div>
+    <div class="arrow left-arrow" (click)="prevSlide()">&#10094;</div>    
+</div>
+  

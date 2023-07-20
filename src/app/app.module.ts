@@ -10,6 +10,7 @@ import { CityComponent } from './component/city/city.component';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { TitleComponent } from './component/title/title.component';
+import { SliderComponent } from './component/slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TitleComponent } from './component/title/title.component';
     HomeComponent,
     CityComponent,
     NavbarComponent,
-    TitleComponent
+    TitleComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,

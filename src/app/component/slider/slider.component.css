@@ -1,0 +1,92 @@
+.slider {
+    width: 975px;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+    background-color: white;
+}
+
+.slide-container {
+    background-color: white;
+    display: flex;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.slides-wrap{
+    display: flex;
+    width: 90%;
+    margin-left: 30px;
+    background-color: white;
+}
+
+.slide {
+    position: relative;
+    flex: 0 0 300px;
+    margin-right: 20px;
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    height: 500px;
+    background-color: white;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.arrow {
+    font-size: 24px;
+    cursor: pointer;
+    user-select: none;
+    padding: 8px;
+}
+
+.left-arrow {
+    float: left;
+    position: absolute;
+    top: 50%;
+    left: 0;
+}
+
+.right-arrow {
+    float: right;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: 300;
+}
+
+
+.header {
+    background-color: #0bb8ff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 70%;
+    width: 90%;
+}
+
+.body {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 90%;
+    bottom: 30%;
+    border: 2px solid #0bb8ff;
+    background-color: white;
+}
+
+.footer {
+    position: absolute;
+    top: 70%;
+    left: 0;
+    width: 90%;
+    bottom: 0%;
+    border-bottom: 2px solid #0bb8ff;
+    border-left: 2px solid #0bb8ff;
+    border-right: 2px solid #0bb8ff;
+    background-color: white;
+}

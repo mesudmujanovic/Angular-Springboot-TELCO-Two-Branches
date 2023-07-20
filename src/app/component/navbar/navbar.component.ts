@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 
-declare var bootstrap: any;
-
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -11,6 +8,7 @@ declare var bootstrap: any;
 export class NavbarComponent {
 
   showPopUp: boolean = false;
+  showPopUp1: boolean = false;
 
   popUp(){
     setTimeout( () =>{
@@ -18,7 +16,17 @@ export class NavbarComponent {
     }, 500)
   }
 
+  popUp1(){
+   setTimeout( () =>{
+    this.showPopUp1 = true;
+   }, 500)
+  }
+
   hidePopUp(){
     this.showPopUp = false;
+  }
+
+  hidePopUp1(){
+    this.showPopUp1 = false;
   }
 }

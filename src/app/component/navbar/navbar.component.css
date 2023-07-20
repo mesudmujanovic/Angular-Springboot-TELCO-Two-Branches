@@ -1,32 +1,86 @@
-  
-  a{
+  a {
     color: white;
     font-family: "Franklin Gothic Medium";
     text-align: center;
-
   }
-  
-  small:hover{
+
+  small:hover {
     border-bottom: 2px solid white;
     text-align: center;
   }
-  
-  .popUp{
-    
-width: 975px;
-height: 254px;
-position: absolute;
-top: 100%;
-left: 0%;
-background-color: red;
-z-index: 1999;
+
+  .popUp {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 975px;
+    height: 254px;
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    background-color:cadetblue;
+    z-index: 1999;
+  }
+
+  .popUp1 {
+    width: 975px;
+    height: 254px;
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    z-index: 1999;
+  }
+
+  .row1, .row2, .row3{
+    position: relative;
+    width: 33.3%;
+    background-color: white;
+    color: black;
+    text-align: start;
   
   }
+
+  .text{
+    margin-left: 30px;
+    
+  }
+
+  h4{
+    font-size: 18px;
+  }
+
+  .button-wrap {
+    background-color: rgba(161, 184, 241, 0.3); 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  .button-wrap h6 {
+    margin-left:15px;
+    color:rgb(21, 167, 245); 
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+  }
+.button-wrap h6 i {
+display: flex;
+justify-content: center;
+align-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: rgb(21, 167, 245);
+  color: white;
+  text-align: center;
+}
+ 
 
   @media screen and (max-width: 567px) {
     .container {
       max-width: 450px;
     }
   }
-  
-  
