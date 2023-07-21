@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="container-wrap">
+      <div class="text">
+        <h5>Lorem ipsum dolor sit amet.</h5>
+        <h6>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, rerum!</h6>
+      </div>
+      <div class="slider">
+        <div class="comment">
+          <div class="slider-container">
+            <div class="slider-track" [style.transform]="'translateX(' + currentIndex * -33 + '%)'">
+              <div *ngFor="let comment of comments" class="div-comment">
+                <div class="div-vote">
+                    <div class="stars">
+                      <span
+                        *ngFor="let star of stars; let i = index"
+                        (click)="rate(i + 1)"
+                        [class.active]="i < selectedRating"
+                      >
+                        ★
+                      </span>
+                    </div>
+                  </div>
+                  
+                <p class="text-comment">{{ comment.comment }}</p>
+                <div class="div-name">
+                  <p class="text-name">{{ comment.name }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="left-arrow" (click)="prevSlide()"><i class="fa fa-arrow-left"></i></button>
+          <button class="right-arrow" (click)="nextSlide()"><i class="fa fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,127 @@
+.container{
+    display: flex;
+    width: 1000px;
+    position: relative;
+}
+
+.container-wrap{
+    width: 100%;
+    background-color: white;
+}
+
+.text{
+    width: 100%;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.text h5{
+    font-weight: bold;
+    color:  rgb(23, 149, 233);
+}
+
+.slider{
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+
+.comment .name{
+    margin-top: 20px;
+}
+
+.div-comment{
+    width: 100%;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.comment .text-comment{
+   display: flex;
+   flex-direction: row;
+   width: 250px;
+   height: 100px;
+}
+.slider-container {
+    overflow: hidden;
+    width: 85%; 
+  }
+  
+  .slider-track {
+    display: flex;
+    transition: transform 0.3s ease;
+  }
+  
+  .div-comment {
+    width: 300px; 
+  }
+  
+  .text-comment {
+    background-color: white;
+    border-right: 1px solid rgb(142, 142, 142);
+  }
+  
+  .left-arrow{
+    position: absolute;
+    top: 55%;
+    left: 0%;
+    width: 40px;
+    background-color:  rgb(44, 162, 241);
+    border: none;
+    height: 35px;
+  }
+
+   .left-arrow i {
+    color:  rgb(44, 162, 241);
+    background-color: white;
+    border-radius: 50%;
+    padding: 2px;
+
+   }
+
+   .right-arrow{
+    position: absolute;
+    top: 55%;
+    right: 0%;
+    width: 40px;
+    background-color:  rgb(44, 162, 241);
+    border: none;
+    height: 35px;
+   }
+
+   .right-arrow i {
+    color:  rgb(44, 162, 241);
+    background-color: white;
+    border-radius: 50%;
+    padding: 2px;
+   }
+
+   .div-name{
+    width: 100%;
+    font-weight: bold;
+   }
+
+  .div-vote{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .vote{
+    display: flex;
+    margin-left: 10px;
+  }
+
+
+.stars {
+    font-size: 24px; 
+  }
+
+  .stars span {
+    cursor: pointer;
+    color: gold
+  }
+  
