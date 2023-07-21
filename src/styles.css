@@ -1,9 +1,10 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url('./assets/bacground-sky.jpg');
+    background-image: url('./assets/bacground-sky-rotate.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+  
   }
   

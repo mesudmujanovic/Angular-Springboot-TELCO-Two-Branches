@@ -1,0 +1,64 @@
+
+.container{
+    width: 1000px;
+}
+
+.container-wrap{
+    width: 100%;
+}
+
+.header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.main{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.main a {
+    margin-left: 20px;
+    width: 150px;
+    text-decoration: none;
+    color: black;
+
+}
+
+.main a:first-child{
+    font-weight: bold;
+}
+
+.header-logo-right{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.header a{
+    width: 130px;
+    border-right: 1px solid darkgray;
+    text-decoration: none;
+    text-align: center;
+    background-color: rgba(233, 235, 235, 0.571);
+    color: rgb(9, 147, 239);
+}
+
+.header a:last-child{
+  border: none;
+}
+
+img{
+ width: 50px;
+ height: 50px;
+ position: absolute;
+ top: 12%;
+}
+
+.logo-text{
+    font-family: 'Patrick Hand';
+    color: rgb(9, 147, 239);
+    font-size: 50px;
+    margin-left: 20px;
+}

@@ -13,6 +13,7 @@ import { TitleComponent } from './component/title/title.component';
 import { SliderComponent } from './component/slider/slider.component';
 import { CommentCustomerComponent } from './component/comment-customer/comment-customer.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { HeaderComponent } from './component/header/header.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     NavbarComponent,
     TitleComponent,
     SliderComponent,
-    CommentCustomerComponent
+    CommentCustomerComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
