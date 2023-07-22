@@ -5,6 +5,7 @@
 
 .container-wrap{
     width: 100%;
+    box-shadow: 2px 2px 4px rgba(129, 199, 249, 0.3);
 }
 
 .header{

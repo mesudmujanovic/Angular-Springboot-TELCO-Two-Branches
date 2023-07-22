@@ -1,0 +1,78 @@
+.container{
+    width: 1000px;
+}
+
+.container-wrap{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color:rgba(23, 149, 233, 0.176);
+}
+
+.container-wrap div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    margin: 10px;
+    box-shadow: 2px 2px 1px 1px rgba(42, 42, 49, 0.1);
+    border-radius: 10px;
+
+}
+
+.tv{
+    display: flex;
+    flex-direction: column;
+}
+
+
+ h4{
+    margin-bottom: 40px;
+}
+
+h6{
+    text-align: center;
+    font-size: 12px;
+    padding: 20px;
+}
+
+.secur{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.instalation{
+    display: flex;
+    flex-direction: column;
+}
+
+img{
+    width: 170px;
+    height: 200px;
+} 
+
+
+
+@media screen and (max-width: 767px) { 
+
+    .container-wrap{
+        display: flex;
+        flex-direction: column;
+    }
+  
+  }
+  
+  @media screen and (max-width: 567px) { 
+  
+
+    .container-wrap{
+        display: flex;
+        flex-direction: column;
+        width: 500px;
+    }
+  
+
+  }
+  

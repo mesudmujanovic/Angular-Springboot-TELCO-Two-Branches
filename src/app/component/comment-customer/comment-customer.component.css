@@ -46,6 +46,7 @@
    width: 250px;
    height: 100px;
 }
+
 .slider-container {
     overflow: hidden;
     width: 85%; 
@@ -124,4 +125,29 @@
     cursor: pointer;
     color: gold
   }
+
+
+
+   @media screen and (max-width:767px) { 
+    .container{
+      display: flex;
+      width: 700px;
+     flex-direction: column;
+     position: relative;
+    }
+
+    .text  h6{
+    position: absolute;
+    }
+   }
   
+  @media screen and (max-width: 567px) {
+    .container{
+      display: flex;
+      flex-direction: column;
+      width: 490px;
+      position: relative;
+  }
+
+ 
+  }
