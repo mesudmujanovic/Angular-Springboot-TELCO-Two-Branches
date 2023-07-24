@@ -15,6 +15,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HeaderComponent } from './component/header/header.component';
 import { MainComponent } from './component/main/main.component';
 import { HomeComponent } from './pages/home/home.component';
+import { TariffsComponent } from './component/tariffs/tariffs.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { HomeComponent } from './pages/home/home.component';
     CommentCustomerComponent,
     HeaderComponent,
     MainComponent,
-    HomeComponent
+    HomeComponent,
+    TariffsComponent
+  
   ],
   imports: [
     BrowserModule,
