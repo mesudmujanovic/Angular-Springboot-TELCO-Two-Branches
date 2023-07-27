@@ -16,8 +16,8 @@ export class TariffsComponent {
   selectedPrice: any
   selectedTarifIndex: number = -1;
   details: boolean = false;
-  price: number = 120;
-  discount: number = 10;
+  price: number;
+  discount: number;
   calculatedPrice: number;
 
   constructor( private tariffService: TariffService ){}
@@ -25,10 +25,7 @@ export class TariffsComponent {
 calculatePriceBackend() {
   this.tariffService.calculate(this.price, this.discount).pipe(    
     tap( response =>{
-    console.log("response", response);
-    this.calculatedPrice = response.calculatedPrice; 
-    console.log("calcilate", this.calculatedPrice);
-    
+    this.calculatedPrice = response.calculatedPrice;     
     })
   ).subscribe();
 }
@@ -38,7 +35,8 @@ calculatePriceBackend() {
       const selectedTarif = tariffs[tarifIndex]; // Odabir tarife na koju ste kliknuli
       this.selectedPrice = selectedTarif.priceList[priceIndex]; // Odabir cijene iz odabrane tarife
       this.selectedTarifIndex = tarifIndex; // Postavljanje indeksa odabrane tarife
-      console.log(this.selectedPrice);
+      this.price = this.selectedPrice.price;
+      this.discount = this.selectedPrice.discount;
     });
   }
   
@@ -52,7 +50,6 @@ calculatePriceBackend() {
 
   ngOnInit(): void {
     this.allTariffs();
-    this.calculatePriceBackend();
   }
 
   prevSlide() {
@@ -73,6 +70,7 @@ calculatePriceBackend() {
   }
 
   detailsClick(){
+    this.calculatePriceBackend();
     this.details = true;
     this.selectedPrice; 
   }
