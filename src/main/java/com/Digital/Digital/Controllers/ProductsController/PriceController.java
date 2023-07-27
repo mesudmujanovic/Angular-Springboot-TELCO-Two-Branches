@@ -1,12 +1,11 @@
 package com.Digital.Digital.Controllers.ProductsController;
 
 
-import com.Digital.Digital.Entity.PriceEntity;
+import com.Digital.Digital.Entity.Calculator;
 import com.Digital.Digital.Infrastructure.Dto.Products.PriceDto;
-import com.Digital.Digital.Infrastructure.Mapper.ProductsDtoMapper.PriceDtoMapper;
 import com.Digital.Digital.Infrastructure.Request.ProductsRequest.PriceRequest;
 import com.Digital.Digital.Infrastructure.Response.ProductsResponse.PriceResponse;
-import com.Digital.Digital.Service.Impl.PriceCalculateService;
+import com.Digital.Digital.Service.Impl.CalculatorImpl;
 import com.Digital.Digital.Service.ProductsService.PriceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,13 +20,7 @@ public class PriceController {
     private PriceService priceService;
 
     @Autowired
-    private PriceCalculateService priceCalculateService;
-
-
-    @PostMapping("/calculate")
-    public ResponseEntity<PriceEntity> calculatePrice(@RequestBody PriceEntity priceEntity) {
-        return ResponseEntity.ok(priceCalculateService.savePrice(priceEntity));
-    }
+    private CalculatorImpl priceCalculateService;
 
 
     @PostMapping("/saveTariff/tariffName/{name}")
