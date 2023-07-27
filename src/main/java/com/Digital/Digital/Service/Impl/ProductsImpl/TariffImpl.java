@@ -9,16 +9,39 @@ import com.Digital.Digital.Service.ProductsService.TariffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class TariffImpl implements TariffService {
 
     @Autowired
-    private TariffRepository priceRepository;
+    private TariffRepository tariffRepository;
 
     @Override
     public TariffDto savePrice(TariffDto tariffDto) {
        Tariff tariff = TariffMapper.INSTANCE.apply(tariffDto);
-       Tariff saveTariff = priceRepository.save(tariff);
+       Tariff saveTariff = tariffRepository.save(tariff);
        return TariffDtoMapper.INSTANCE.apply(saveTariff);
     }
+
+    @Override
+    public TariffDto getTariffId(Long tariffId) {
+        Tariff tariff = tariffRepository.findById(tariffId).orElse(null);
+        return TariffDtoMapper.INSTANCE.apply(tariff);
+    }
+
+    @Override
+    public TariffDto getByName(String name) {
+        Tariff tariff = tariffRepository.findByName(name);
+        return TariffDtoMapper.INSTANCE.apply(tariff);
+    }
+
+    @Override
+    public List<TariffDto> getAll() {
+        List<Tariff> tariffList = tariffRepository.findAll();
+        return tariffList.stream().map( tariffs -> TariffDtoMapper.INSTANCE.apply(tariffs)).collect(Collectors.toList());
+    }
+
+
 }

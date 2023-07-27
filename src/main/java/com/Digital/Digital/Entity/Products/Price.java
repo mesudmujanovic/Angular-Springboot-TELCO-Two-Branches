@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
@@ -24,4 +21,8 @@ public class Price {
     private Boolean oneTime;
     private String name;
     private Double discount;
+
+    @ManyToOne
+    @JoinColumn( name = "tariff_name")
+    private Tariff tariff;
 }

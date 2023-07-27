@@ -1,7 +1,6 @@
 package com.Digital.Digital.Entity.Availibility;
 
 
-import com.Digital.Digital.Entity.Availibility.Address;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
