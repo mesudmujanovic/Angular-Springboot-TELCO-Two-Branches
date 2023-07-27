@@ -1,1 +1,79 @@
-<p>tariffs works!</p>
+<div class="slider" >
+    <div class="arrow right-arrow" (click)="nextSlide()">
+        <i class="fa fa-arrow-right"></i>
+    </div>
+    <div class="slide-container"  [style.transform]="'translateX(' + (-currentIndex * 300) + 'px)'">
+        <div class="slides-wrap  dimmed" [ngClass]="{'dimmed':details}" *ngIf="tariffs | async as tariffs">
+            <div *ngFor="let allTarrifs of tariffs;  let tariffIndex = index"
+                [ngClass]="{ 'active-slide': isActive(tariffIndex) }" class="slide">
+                <div class="header">
+                    <h3 class="header-header text-white">{{ allTarrifs.name }}
+                        <small class="header-main">{{allTarrifs.speed}}</small>
+                        <small class="header-main-right">max. 25 Mbit/s</small>
+                    </h3>
+                </div>
+                <div class="body">
+                    <h5 class="body-main"><i class="fas fa-check" style="color: orange;"></i>Free Deployment</h5>
+                    <small class="body-main2">One-time provision is no</small>
+                    <small class="body-main2">One-time provision is not</small>
+                    <small class="body-main2">One-time provision is not</small>
+                </div>
+                <div class="footer">
+                    <div class="footer-price">
+                        <div class="showPrice">
+                            <p
+                                style="font-size: 10px; color: black; display: flex; justify-content: center; align-items: center; background-color: rgba(255, 166, 0, 0.651)">
+                                Discount {{allTarrifs.priceList[0].discount}} %
+                            </p>
+                            <p class="priceTariff">{{allTarrifs.priceList[0].price }}$ Monthly
+                           </p>
+                        </div>
+                        <div class="contractDuration" >
+                            <p>contractDuration</p>
+                            <a class="leftBtn" (click)="showPriceList(tariffIndex, 0)"> 12 Mon</a>
+                            <a class="RightBtn" (click)="showPriceList(tariffIndex, 1)">0 Mon</a>
+                        </div>
+                        <div *ngIf="selectedTarifIndex  === tariffIndex" class="footer-price-popUp">
+                         <div>
+                            <p class="popUp-all">{{ selectedPrice.contractDuration }} Monthly -- {{selectedPrice.price}}$
+                                Discount {{allTarrifs.priceList[0].discount}}%</p>
+                                <button class="btn btn-primary" (click)="detailsClick()">Details</button>
+                         </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div *ngIf="details" class="details">
+            <button class="btn btn-primary" (click)="closeDetails()">X</button>
+            <div class="detailsWrap" *ngIf="selectedPrice">
+                <p>{{ selectedPrice.contractDuration }} Monthly Contract Duration</p>
+              <p>{{selectedPrice.price}}$ Price</p>
+              <p>Discount {{selectedPrice.discount}} %</p>
+               <p>{{calculatedPrice}}</p>           
+            </div>
+
+         </div>
+    </div>
+    <div class="arrow left-arrow" (click)="prevSlide()">
+        <i class="fa fa-arrow-left"></i>
+    </div>
+</div>
+
+ 
+
+
+<!-- <div *ngIf="tariffs | async as tariffs">
+    <div *ngFor="let tarif of tariffs; let tariffIndex = index">
+      {{tarif.speed}}
+      <div class="footer-main">
+        <button class="btn btn-primary" (click)="showPriceList(tariffIndex, 0)"> 0 Month</button>
+        <button class="btn btn-primary" (click)="showPriceList(tariffIndex, 1)">12 Months</button>
+      </div>
+      <div *ngIf="selectedTarifIndex  === tariffIndex" class="footer-price">
+        {{ selectedPrice.contractDuration }} Monthly {{selectedPrice.price}}
+      </div>
+      <div class="footer-footer"><small>Product Information Sheet</small></div>
+    </div>
+  </div> -->

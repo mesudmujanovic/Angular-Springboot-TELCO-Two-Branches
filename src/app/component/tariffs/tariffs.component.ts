@@ -12,21 +12,26 @@ export class TariffsComponent {
 
   tariffs: Observable<ITariff[]>;
 
-  divs = [
-    { title: 'Div 1', content: 'Sadržaj za div 1', price:'222$' },
-    { title: 'Div 2', content: 'Sadržaj za div 2', price:'12$' },
-    { title: 'Div 3', content: 'Sadržaj za div 3', price:'22$' },
-    { title: 'Div 4', content: 'Sadržaj za div 4', price:'122$' },
-    { title: 'Div 5', content: 'Sadržaj za div 5', price:'41$' },
-    { title: 'Div 6', content: 'Sadržaj za div 6', price:'90$' },
-  ];
   currentIndex = 0;
-
   selectedPrice: any
   selectedTarifIndex: number = -1;
+  details: boolean = false;
+  price: number = 120;
+  discount: number = 10;
+  calculatedPrice: number;
 
   constructor( private tariffService: TariffService ){}
 
+calculatePriceBackend() {
+  this.tariffService.calculate(this.price, this.discount).pipe(    
+    tap( response =>{
+    console.log("response", response);
+    this.calculatedPrice = response.calculatedPrice; 
+    console.log("calcilate", this.calculatedPrice);
+    
+    })
+  ).subscribe();
+}
 
   showPriceList(tarifIndex: number, priceIndex: number) {
     this.tariffs.subscribe(tariffs => {
@@ -37,16 +42,17 @@ export class TariffsComponent {
     });
   }
   
-  allTariffs(){
+   allTariffs(){
     return this.tariffs = this.tariffService.getAllTariffs().pipe(
       tap( response => {
         console.log("res",response);
       })
     )
   }
- 
 
   ngOnInit(): void {
+    this.allTariffs();
+    this.calculatePriceBackend();
   }
 
   prevSlide() {
@@ -54,16 +60,27 @@ export class TariffsComponent {
       this.currentIndex--;
     }
   }
-
   nextSlide() {
-    if (this.currentIndex < this.divs.length - 3) {
-      this.currentIndex++;
+    this.tariffs.subscribe( (tariff: ITariff[]) => {
+      if (this.currentIndex < tariff.length - 3) {
+        this.currentIndex++;
+      }
+    } )
     }
-  }
 
   isActive(index: number): boolean {
     return index === this.currentIndex +1;
   }
 
+  detailsClick(){
+    this.details = true;
+    this.selectedPrice; 
+  }
+
+  closeDetails(){
+    this.details = false;
+  }
+
 
 }
+

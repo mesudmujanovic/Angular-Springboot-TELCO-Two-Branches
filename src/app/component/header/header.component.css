@@ -63,3 +63,24 @@ img{
     font-size: 50px;
     margin-left: 20px;
 }
+
+
+@media screen and (max-width: 567px) { 
+
+    .container{
+        max-width: 440px;
+    }
+    
+    .container-wrap{
+        max-width: 100%;
+    }
+
+    .main{
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        overflow: hidden;
+    }
+
+
+}

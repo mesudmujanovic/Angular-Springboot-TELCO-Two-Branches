@@ -145,7 +145,7 @@
     .container{
       display: flex;
       flex-direction: column;
-      width: 490px;
+      width: 455px;
       position: relative;
   }
 

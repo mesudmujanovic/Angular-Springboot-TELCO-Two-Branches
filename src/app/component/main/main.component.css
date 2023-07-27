@@ -66,13 +66,20 @@ img{
   
   @media screen and (max-width: 567px) { 
   
+    .container{
+        width: 455px;
+    }
 
     .container-wrap{
         display: flex;
         flex-direction: column;
-        width: 500px;
+       
     }
   
+    .container-wrap div{
+     box-shadow: none;
+     border-radius: 0px;
+    }
 
   }
   

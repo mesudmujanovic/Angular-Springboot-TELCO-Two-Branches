@@ -9,7 +9,6 @@ import { CityComponent } from './component/city/city.component';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { TitleComponent } from './component/title/title.component';
-import { SliderComponent } from './component/slider/slider.component';
 import { CommentCustomerComponent } from './component/comment-customer/comment-customer.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HeaderComponent } from './component/header/header.component';
@@ -24,7 +23,6 @@ import { TariffsComponent } from './component/tariffs/tariffs.component';
     CityComponent,
     NavbarComponent,
     TitleComponent,
-    SliderComponent,
     CommentCustomerComponent,
     HeaderComponent,
     MainComponent,
