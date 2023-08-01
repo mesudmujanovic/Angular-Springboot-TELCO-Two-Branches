@@ -4,11 +4,12 @@ import { ITariff } from 'src/app/Interface/ITariff';
 import { TariffService } from 'src/app/service/tariff.service';
 
 @Component({
-  selector: 'app-tariffs',
-  templateUrl: './tariffs.component.html',
-  styleUrls: ['./tariffs.component.css']
+  selector: 'app-tariffs-for-main-page',
+  templateUrl: './tariffs-for-main-page.component.html',
+  styleUrls: ['./tariffs-for-main-page.component.css']
 })
-export class TariffsComponent {
+export class TariffsForMainPageComponent {
+
 
   tariffs: Observable<ITariff[]>;
 
@@ -19,6 +20,7 @@ export class TariffsComponent {
   price: number;
   discount: number;
   calculatedPrice: number;
+  orderSave: boolean = false;
 
   constructor( private tariffService: TariffService ){}
 
@@ -82,10 +84,13 @@ calculatePriceBackend() {
   saveOrder(){
     this.selectedPrice; 
     this.calculatedPrice;
+    this.details = false;
+    this.orderSave = true;
+    setInterval( () =>{
+      this.orderSave = false
+    }, 2000)
     console.log("order", this.selectedPrice);
     console.log("price", this.calculatedPrice);
   }
 
-
 }
-

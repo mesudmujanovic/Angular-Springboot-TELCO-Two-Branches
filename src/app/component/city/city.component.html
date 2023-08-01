@@ -1,8 +1,3 @@
-<!-- <form [formGroup]="cityForm" (ngSubmit)="onAddCity()">
-    <label for="name">City</label>
-    <input type="text" name="name" formControlName="name">
-    <button type="submit">Save</button>
-</form> -->
 <div class="container wrap" *ngIf="cityes | async as cities">
   <div class=" select-container">
     <div class="container-naslov">
@@ -28,7 +23,6 @@
         <p>Izaberi broj</p>
         <select class="form-select" [(ngModel)]="selectedNumber" (change)="onNumberChange()"
           [disabled]="!this.onSelectedNumberFiled">
-          <option [ngValue]="null">Izaberite broj</option>
           <option *ngFor="let numbers of this.selectedAddress?.numberDtoList" [ngValue]="numbers">
             {{numbers.num}}
           </option>
@@ -36,7 +30,7 @@
       </div>
     </div>
     <div class="button-select sel">
-      <button class="btn btn-primary proveriButton">Proveri Dostupnost</button>
+      <button class="btn btn-primary proveriButton" (click)="proveriDostupnost()">Proveri Dostupnost</button>
     </div>
   </div>
 </div>

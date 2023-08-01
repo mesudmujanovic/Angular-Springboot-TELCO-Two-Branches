@@ -5,6 +5,7 @@ import { CityService } from 'src/app/service/city.service';
 import { City } from '../../Interface/city-interface';
 import { Address } from '../../Interface/address-interface';
 import { Number } from '../../Interface/number-interface';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-city',
   templateUrl: './city.component.html',
@@ -12,80 +13,87 @@ import { Number } from '../../Interface/number-interface';
 })
 export class CityComponent {
 
-cityForm: FormGroup;
-cityes: Observable<City[]>
-selectedCity: City| null;
-selectedAddress: Address | null
-selectedNumber: Number | null;
-onSelectedCityFiled: boolean = false;
-onSelectedAddressFiled: boolean = false;
-onSelectedNumberFiled: boolean = false;
+  cityForm: FormGroup;
+  cityes: Observable<City[]>
+  selectedCity: City | null;
+  selectedAddress: Address | null
+  selectedNumber: Number | null;
+  onSelectedCityFiled: boolean = false;
+  onSelectedAddressFiled: boolean = false;
+  onSelectedNumberFiled: boolean = false;
 
-
-constructor(private cityService: CityService,
-  private formBuilder: FormBuilder){
-  this.cityForm = this.formBuilder.group({
-    name: [ '', Validators.required ]
-  })
-}
-
-onAddCity(){
-if( this.cityForm.valid ){
-  const name = this.cityForm.get('name').value;
-  this.cityService.addCity(name).pipe(
-    tap( response =>{
-      console.log("response",response);
-      
-    }),
-    catchError( error =>{
-      return of([]);
-    })
-  ).subscribe()
-}
-}
-
-allCitys(): Observable<City[]>{
-  return  this.cityService.getAllCityes().pipe(
-    tap( response =>{
-
-    }),
-    catchError( error =>{
-      return of([]);
-    })
-  )
-}
-
-onCityChange(){
-  if( this.selectedCity ){
-    this.onSelectedAddressFiled = true;
-    const filter = this.selectedCity.addressDtoList;
-    this.selectedAddress = filter.length > 0 ? filter[this.selectedCity.id] : null; 
-  }else{
-    this.selectedAddress = null;
+  constructor(private cityService: CityService,
+    private formBuilder: FormBuilder,
+    private router: Router) {
+    this.cityForm = this.formBuilder.group({
+      name: ['', Validators.required]
+    });
   }
-}
 
-onAddressChange(){
-  if( this.selectedAddress ){
-    this.onSelectedNumberFiled = true
-    console.log("ngModelNumber", this.selectedAddress);
-   const addressAll = this.selectedAddress.numberDtoList;
-   this.selectedNumber = addressAll.length > 0 ? addressAll[this.selectedAddress.id] : null;   
-  }else{
-    this.selectedNumber = null;
+  onAddCity() {
+    if (this.cityForm.valid) {
+      const name = this.cityForm.get('name').value;
+      this.cityService.addCity(name).pipe(
+        tap(response => {
+          console.log("response", response);
+        }),
+        catchError(error => {
+          return of([]);
+        })
+      ).subscribe()
+    }
   }
-}
 
-onNumberChange(){
-  if( this.selectedNumber ) {
-    console.log(this.selectedNumber);
+  allCitys(): Observable<City[]> {
+    return this.cityService.getAllCityes().pipe(
+      tap(response => {
+      }),
+      catchError(error => {
+        return of([]);
+      })
+    )
   }
-}
 
-ngOnInit(): void{
- this.cityes = this.allCitys();
- this.cityes.subscribe()
-  
-}
+  onCityChange() {
+    if (this.selectedCity) {
+      this.onSelectedAddressFiled = true;
+      const filter = this.selectedCity.addressDtoList;
+      this.selectedAddress = filter.length > 0 ? filter[this.selectedCity.id] : null;
+    } else {
+      this.selectedAddress = null;
+    }
+  }
+
+  onAddressChange() {
+    if (this.selectedAddress) {
+      this.onSelectedNumberFiled = true
+      const addressAll = this.selectedAddress.numberDtoList;
+      this.selectedNumber = addressAll.length > 0 ? addressAll[this.selectedAddress.id] : null;
+    } else {
+      this.selectedNumber = null;
+    }
+  }
+
+  onNumberChange() {
+    if (this.selectedNumber) {
+      console.log(this.selectedNumber);
+    }
+  }
+
+  proveriDostupnost() {
+    if (this.selectedCity &&
+      this.selectedAddress &&
+      this.selectedNumber) {
+      this.selectedCity.name;
+      this.selectedAddress.name;
+      this.selectedNumber.num;
+      this.router.navigate(['main-page'])
+    }
+  }
+
+  ngOnInit(): void {
+    this.cityes = this.allCitys();
+    this.cityes.subscribe()
+  }
 
 }

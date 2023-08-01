@@ -1,3 +1,4 @@
+
 .slider {
     width: 975px;
     overflow: hidden;
@@ -247,7 +248,7 @@ i{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 110px 50px 50px 50px ;
+    margin: 110px 50px 50px 100px ;
     width: 40%;
     height: 400px;
     background-color: rgb(23, 149, 233);
@@ -279,7 +280,23 @@ i{
     border: 2px solid white;
    }
 
+   .orderSave{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    z-index: 999;
+    width: 500px;
+    height: 100px;
+    margin-top: 200px;
+    box-shadow: 3px 3px 3px 3px rgb(23, 149, 233);;
+   }
+
    .dimmed{
+    opacity: 0.3;
+   }
+
+   .orderDimmed{
     opacity: 0.3;
    }
 
@@ -336,8 +353,6 @@ i{
         width: 350px;
         left: 5%;
          }
-
-
  } 
   
   @media screen and (max-width: 567px) {

@@ -7,15 +7,19 @@ import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CityComponent } from './component/city/city.component';
 import { FormsModule } from '@angular/forms';
-import { NavbarComponent } from './component/navbar/navbar.component';
+import { NavbarComponent } from './layout/navbar/navbar.component';
 import { TitleComponent } from './component/title/title.component';
 import { CommentCustomerComponent } from './component/comment-customer/comment-customer.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { HeaderComponent } from './component/header/header.component';
+import { HeaderComponent } from './layout/header/header.component';
 import { MainComponent } from './component/main/main.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TariffsComponent } from './component/tariffs/tariffs.component';
-
+import { MainPageComponent } from './pages/main-page/main-page.component';
+import { TariffsForMainPageComponent } from './component/tariffs-for-main-page/tariffs-for-main-page.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { AllRoutersComponent } from './component/routers/all-routers/all-routers.component';
+import { Router } from './component/routers/router/router.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +31,13 @@ import { TariffsComponent } from './component/tariffs/tariffs.component';
     HeaderComponent,
     MainComponent,
     HomeComponent,
-    TariffsComponent
+    TariffsComponent,
+    MainPageComponent,
+    TariffsForMainPageComponent,
+    FooterComponent,
+    AllRoutersComponent,
+    Router
+    
   
   ],
   imports: [

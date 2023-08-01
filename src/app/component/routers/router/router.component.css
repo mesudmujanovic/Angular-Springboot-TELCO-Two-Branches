@@ -1,0 +1,45 @@
+.container{
+    width: 975px;
+    background-color: rgb(229, 233, 244);
+    height: 350px;
+}
+
+.wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.left{  
+    background-color: white;
+    width: 45%;
+}
+
+.right{
+    background-color:white;
+    width: 45%;
+}
+
+.left, .right{
+    height: 240px;
+    margin: 50px 0px 0px 0px;
+}
+
+ img{
+    display: flex;
+    margin-left: 50px;
+    width: 300px;
+    height: 100px;
+    margin-bottom: 10px;
+    box-shadow: 2px 3px 2px 2px  rgb(9, 147, 239);
+}
+
+.left, h4, img {
+margin-top: 30px;
+}
+
+.left, p:first-child{
+    margin-top: 50px;
+    font-size: larger;
+}
