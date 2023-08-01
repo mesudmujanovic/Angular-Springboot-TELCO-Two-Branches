@@ -32,7 +32,6 @@ public class TariffDto {
         return priceDto;
     }
 
-                      //optional PriceDto priceDto
     public TariffResponse dtoToResponse (){
         TariffResponse priceResponse = new TariffResponse();
         priceResponse.setId(this.getId());
