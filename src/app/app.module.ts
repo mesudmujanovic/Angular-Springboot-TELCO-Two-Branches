@@ -20,6 +20,7 @@ import { TariffsForMainPageComponent } from './component/tariffs-for-main-page/t
 import { FooterComponent } from './layout/footer/footer.component';
 import { AllRoutersComponent } from './component/routers/all-routers/all-routers.component';
 import { Router } from './component/routers/router/router.component';
+import { RoutersComponent } from './pages/routers/routers.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { Router } from './component/routers/router/router.component';
     TariffsForMainPageComponent,
     FooterComponent,
     AllRoutersComponent,
-    Router
+    Router,
+    RoutersComponent
     
   
   ],
