@@ -1,6 +1,6 @@
 import { Number } from "./number-interface";
 
-export interface Address{
+export class Address{
     id: number;
     name: string;
     numberDtoList?: Number[]

@@ -1,1 +1,27 @@
-<p>all-routers works!</p>
+<div class="container" *ngIf="routers$ | async as routers">
+    <div class="wrap" *ngFor="let allRouters of routers; let i = index">
+        <div class="products" [ngClass]="{'selectedRouter': selectedRouter?.id === allRouters.id }">
+            <div>
+                <p>{{allRouters.description}}</p>
+                <p> {{allRouters.price}} $ One-time-only</p>
+                <p><img src="../../../../assets/moxc.jpg" alt=""></p>
+                <p> <button class="btn btn-primary" (click)="onAddRouter(allRouters)">Add router</button></p>
+            </div>
+        </div>
+    </div>
+    <div class="order" *ngIf="orderFinish">
+      <div>
+        <p>
+            Your router is saved. Thank you.
+        </p>
+      </div>
+        <div *ngIf="selectedRouter">
+            <p> {{selectedRouter.description}}</p>
+            <p> {{selectedRouter.price}} $ Price
+            </p>
+            <h4>
+                Please wait <small style="font-weight: bold; color: orange;">{{seconds}}</small> seconds...
+            </h4>
+        </div>
+    </div>
+</div>

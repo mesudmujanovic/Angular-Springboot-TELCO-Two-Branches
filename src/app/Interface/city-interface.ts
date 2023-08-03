@@ -1,5 +1,5 @@
 import { Address } from './address-interface';
-export interface City{
+export class City{
     id: number;
     name: string;
     addressDtoList:Address[];

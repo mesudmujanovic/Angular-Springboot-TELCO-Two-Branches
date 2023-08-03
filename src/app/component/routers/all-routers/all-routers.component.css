@@ -1,0 +1,62 @@
+img{
+    width: 150px;
+    height: 100px;
+}
+
+.selectedRouter{
+box-shadow: 3px 3px 3px 3px rgb(23, 149, 233);;
+}
+
+.container{
+width: 1000px;
+position: relative;
+display: flex;
+flex-direction: row;
+}
+
+.wrap{
+width: 100%;
+background-color: white;
+}
+
+.products{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.products p{
+    display: flex;
+    cursor: pointer;
+    color: rgb(23, 149, 233);
+}
+
+p, img{
+    display: flex;
+    justify-content: center;
+    font-family: "Franklin Gothic Medium";
+    font-weight: bold;
+
+}
+
+button{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    text-align: center;
+}
+
+.order{
+    position: absolute;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0%;
+    width: 95%;
+    height: 100%;
+    background-color: white;
+    box-shadow: 3px 3px 3px 3px orange;
+}

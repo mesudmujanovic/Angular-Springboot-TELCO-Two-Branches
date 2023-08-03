@@ -1,4 +1,4 @@
-export interface UserJWT{
+export class UserJWT{
     
     id: number;
     username: string;
