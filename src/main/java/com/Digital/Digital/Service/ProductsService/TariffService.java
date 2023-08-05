@@ -13,4 +13,5 @@ public interface TariffService {
     public TariffDto getByName( String name );
 
     public List<TariffDto> getAll ();
+
 }

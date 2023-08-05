@@ -26,5 +26,4 @@ public class Address {
 
     @OneToMany( mappedBy = "address", fetch = FetchType.LAZY)
     private List<Number> numbers;
-
 }

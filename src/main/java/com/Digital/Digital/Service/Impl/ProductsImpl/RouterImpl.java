@@ -29,4 +29,10 @@ public class RouterImpl implements RouterService {
         List<Router> listRouters = routerRepository.findAll();
         return listRouters.stream().map( routers -> RouterDtoMapper.INSTANCE.apply(routers)).collect(Collectors.toList());
     }
+
+    @Override
+    public RouterDto getById(Long routerId) {
+        Router router = routerRepository.findById( routerId ).orElse(null);
+        return RouterDtoMapper.INSTANCE.apply(router);
+    }
 }

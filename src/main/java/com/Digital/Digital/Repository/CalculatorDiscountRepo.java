@@ -1,9 +1,9 @@
 package com.Digital.Digital.Repository;
 
-import com.Digital.Digital.Entity.Calculator;
+import com.Digital.Digital.Entity.CalculatorDiscountTariff;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CalculatorRepo extends JpaRepository<Calculator, Long> {
+public interface CalculatorDiscountRepo extends JpaRepository<CalculatorDiscountTariff, Long> {
 }

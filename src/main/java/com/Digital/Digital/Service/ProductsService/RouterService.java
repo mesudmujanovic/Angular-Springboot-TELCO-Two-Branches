@@ -9,4 +9,6 @@ public interface RouterService {
      public RouterDto saveRouter(RouterDto routerDto);
 
      public List<RouterDto> getAllRouter();
+
+     public RouterDto getById( Long routerId);
 }

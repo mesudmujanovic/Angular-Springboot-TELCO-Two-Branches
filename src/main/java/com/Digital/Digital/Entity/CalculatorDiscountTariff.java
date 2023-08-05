@@ -13,14 +13,12 @@ import javax.persistence.Id;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Calculator {
+public class CalculatorDiscountTariff {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     private int price;
     private int discount;
     private int calculatedPrice;
-
 }

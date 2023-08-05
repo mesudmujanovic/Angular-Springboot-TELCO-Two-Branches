@@ -1,11 +1,10 @@
 package com.Digital.Digital.Controllers.ProductsController;
 
 
-import com.Digital.Digital.Entity.Calculator;
 import com.Digital.Digital.Infrastructure.Dto.Products.PriceDto;
 import com.Digital.Digital.Infrastructure.Request.ProductsRequest.PriceRequest;
 import com.Digital.Digital.Infrastructure.Response.ProductsResponse.PriceResponse;
-import com.Digital.Digital.Service.Impl.CalculatorImpl;
+import com.Digital.Digital.Service.Impl.CalculatorDiscountTariffImpl;
 import com.Digital.Digital.Service.ProductsService.PriceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +19,7 @@ public class PriceController {
     private PriceService priceService;
 
     @Autowired
-    private CalculatorImpl priceCalculateService;
+    private CalculatorDiscountTariffImpl priceCalculateService;
 
 
     @PostMapping("/saveTariff/tariffName/{name}")
