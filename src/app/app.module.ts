@@ -21,6 +21,8 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { AllRoutersComponent } from './component/routers/all-routers/all-routers.component';
 import { Router } from './component/routers/router/router.component';
 import { RoutersComponent } from './pages/routers/routers.component';
+import { InfoUserComponent } from './pages/info-user/info-user.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,9 +40,9 @@ import { RoutersComponent } from './pages/routers/routers.component';
     FooterComponent,
     AllRoutersComponent,
     Router,
-    RoutersComponent
+    RoutersComponent,
+    InfoUserComponent
     
-  
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,7 @@ import { RoutersComponent } from './pages/routers/routers.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

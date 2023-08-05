@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { ITariff } from 'src/app/Interface/ITariff';
+import { CalculatorService } from 'src/app/service/calculator.service';
+import { LocalStorageService } from 'src/app/service/local-storage.service';
 import { TariffService } from 'src/app/service/tariff.service';
 
 @Component({
@@ -10,9 +12,7 @@ import { TariffService } from 'src/app/service/tariff.service';
 })
 export class TariffsForMainPageComponent {
 
-
   tariffs: Observable<ITariff[]>;
-
   currentIndex = 0;
   selectedPrice: any
   selectedTarifIndex: number = -1;
@@ -22,12 +22,14 @@ export class TariffsForMainPageComponent {
   calculatedPrice: number;
   orderSave: boolean = false;
 
-  constructor( private tariffService: TariffService ){}
+  constructor( private tariffService: TariffService, private calculatorService: CalculatorService,
+    private localStorage: LocalStorageService ){}
 
 calculatePriceBackend() {
-  this.tariffService.calculate(this.price, this.discount).pipe(    
+  this.calculatorService.calculate(this.price, this.discount).pipe(    
     tap( response =>{
     this.calculatedPrice = response.calculatedPrice;     
+    this.localStorage.setLocalStorage('price', this.calculatedPrice)
     })
   ).subscribe();
 }

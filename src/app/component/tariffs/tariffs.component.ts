@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { ITariff } from 'src/app/Interface/ITariff';
+import { CalculatorService } from 'src/app/service/calculator.service';
 import { TariffService } from 'src/app/service/tariff.service';
 
 @Component({
@@ -22,23 +23,7 @@ export class TariffsComponent {
 
   constructor( private tariffService: TariffService ){}
 
-calculatePriceBackend() {
-  this.tariffService.calculate(this.price, this.discount).pipe(    
-    tap( response =>{
-    this.calculatedPrice = response.calculatedPrice;     
-    })
-  ).subscribe();
-}
 
-  showPriceList(tarifIndex: number, priceIndex: number) {
-    this.tariffs.subscribe(tariffs => {
-      const selectedTarif = tariffs[tarifIndex]; // Odabir tarife na koju ste kliknuli
-      this.selectedPrice = selectedTarif.priceList[priceIndex]; // Odabir cijene iz odabrane tarife
-      this.selectedTarifIndex = tarifIndex; // Postavljanje indeksa odabrane tarife
-      this.price = this.selectedPrice.price;
-      this.discount = this.selectedPrice.discount;
-    });
-  }
   
    allTariffs(){
     return this.tariffs = this.tariffService.getAllTariffs().pipe(
@@ -68,24 +53,6 @@ calculatePriceBackend() {
   isActive(index: number): boolean {
     return index === this.currentIndex +1;
   }
-
-  detailsClick(){
-    this.calculatePriceBackend();
-    this.details = true;
-    this.selectedPrice; 
-  }
-
-  closeDetails(){
-    this.details = false;
-  }
-
-  saveOrder(){
-    this.selectedPrice; 
-    this.calculatedPrice;
-    console.log("order", this.selectedPrice);
-    console.log("price", this.calculatedPrice);
-  }
-
 
 }
 
