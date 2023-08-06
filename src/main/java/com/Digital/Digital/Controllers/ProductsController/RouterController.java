@@ -21,14 +21,14 @@ public class RouterController {
 
     @PostMapping("/addRouter")
     public ResponseEntity<RouterResponse> saveRouter(@RequestBody RouterRequest routerRequest) {
-        RouterDto routerDto = RouterDto.fromResponseToDto(routerRequest);
+        RouterDto routerDto = RouterDto.fromRequestToDto(routerRequest);
         RouterDto routerDtoSave = routerService.saveRouter(routerDto);
-        return ResponseEntity.ok(RouterDto.fromDtoToRequest(routerDtoSave));
+        return ResponseEntity.ok(RouterDto.fromDtoToResponse(routerDtoSave));
     }
 
     @GetMapping("/getAllRouters")
     public ResponseEntity<List<RouterResponse>> getAllRouter(){
         List<RouterDto> routerDtos = routerService.getAllRouter();
-        return ResponseEntity.ok(routerDtos.stream().map( routers -> RouterDto.fromDtoToRequest(routers)).collect(Collectors.toList()));
+        return ResponseEntity.ok(routerDtos.stream().map( routers -> RouterDto.fromDtoToResponse(routers)).collect(Collectors.toList()));
     }
 }

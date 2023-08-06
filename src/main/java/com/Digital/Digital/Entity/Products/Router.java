@@ -18,5 +18,4 @@ public class Router {
     private String description;
     private Integer price;
 
-
 }

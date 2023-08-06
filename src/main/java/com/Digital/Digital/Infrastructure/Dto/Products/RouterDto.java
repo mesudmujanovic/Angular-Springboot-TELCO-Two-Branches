@@ -11,14 +11,14 @@ public class RouterDto {
     private Integer price;
 
 
-    public static RouterDto fromResponseToDto(RouterRequest routerRequest){
+    public static RouterDto fromRequestToDto(RouterRequest routerRequest){
         RouterDto routerDto = new RouterDto();
         routerDto.setDescription(routerRequest.getDescription());
         routerDto.setPrice(routerRequest.getPrice());
         return routerDto;
     };
 
-    public static RouterResponse fromDtoToRequest(RouterDto routerDto){
+    public static RouterResponse fromDtoToResponse(RouterDto routerDto){
         RouterResponse routerResponse = new RouterResponse();
         routerResponse.setId(routerDto.getId());
         routerResponse.setDescription(routerDto.getDescription());
