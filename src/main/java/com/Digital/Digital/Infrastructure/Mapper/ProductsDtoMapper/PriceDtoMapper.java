@@ -16,6 +16,7 @@ public enum PriceDtoMapper implements DtoMapper<PriceDto, Price> {
         priceDto.setOneTime(price.getOneTime());
         priceDto.setContractDuration(price.getContractDuration());
         priceDto.setDiscount(price.getDiscount());
+        priceDto.setTariffId(price.getTariff().getId());
         return priceDto;
     }
 }

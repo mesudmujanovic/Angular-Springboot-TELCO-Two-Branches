@@ -2,7 +2,6 @@ package com.Digital.Digital.Controllers.CartController;
 
 import com.Digital.Digital.Infrastructure.Dto.Products.RouterDto;
 import com.Digital.Digital.Infrastructure.Dto.Products.TariffDto;
-import com.Digital.Digital.Infrastructure.Request.ProductsRequest.TariffRequest;
 import com.Digital.Digital.Infrastructure.Response.ProductsResponse.RouterResponse;
 import com.Digital.Digital.Infrastructure.Response.ProductsResponse.TariffResponse;
 import com.Digital.Digital.Service.ProductsService.RouterService;
@@ -21,7 +20,6 @@ public class CartController {
 
     @Autowired
     RouterService routerService;
-
 
     @GetMapping("/saveCartTariff/{tariffId}")
     private ResponseEntity<TariffResponse> getPrice ( @PathVariable Long tariffId){

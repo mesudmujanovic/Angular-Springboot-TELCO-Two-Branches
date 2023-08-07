@@ -15,6 +15,8 @@ public class PriceDto {
     private String name;
     private Double discount;
 
+    private Long tariffId;
+
     public static PriceDto requestToDto (PriceRequest priceRequest){
         PriceDto priceDto = new PriceDto();
         priceDto.setName(priceRequest.getName());
@@ -33,6 +35,7 @@ public class PriceDto {
         priceResponse.setName(this.getName());
         priceResponse.setContractDuration(this.getContractDuration());
         priceResponse.setPrice(this.getPrice());
+        priceResponse.setTariffId(this.getTariffId());
         return priceResponse;
     }
 }

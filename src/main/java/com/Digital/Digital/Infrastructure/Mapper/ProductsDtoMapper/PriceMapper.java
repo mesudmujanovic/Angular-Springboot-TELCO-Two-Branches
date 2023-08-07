@@ -1,6 +1,7 @@
 package com.Digital.Digital.Infrastructure.Mapper.ProductsDtoMapper;
 
 import com.Digital.Digital.Entity.Products.Price;
+import com.Digital.Digital.Entity.Products.Tariff;
 import com.Digital.Digital.Infrastructure.Dto.Products.PriceDto;
 import com.Digital.Digital.Intergration.DtoMapper;
 
@@ -16,6 +17,9 @@ public enum PriceMapper implements DtoMapper<Price, PriceDto> {
         price.setOneTime(priceDto.getOneTime());
         price.setContractDuration(priceDto.getContractDuration());
         price.setDiscount(priceDto.getDiscount());
+        Tariff tariff = new Tariff();
+        tariff.setId(tariff.getId());
+        price.setTariff(tariff);
         return price;
     }
 }

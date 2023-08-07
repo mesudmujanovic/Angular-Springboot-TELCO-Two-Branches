@@ -10,4 +10,6 @@ public class PriceResponse {
     private Boolean oneTime;
     private String name;
     private Double discount;
+
+    private Long tariffId;
 }
