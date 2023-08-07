@@ -85,6 +85,10 @@ calculatePriceBackend() {
 
   saveOrder(){
     this.selectedPrice; 
+    const priceId = this.selectedPrice.id;
+    const tariffId = this.selectedPrice.tariffId
+    this.localStorage.setLocalStorage('priceId', priceId);
+    this.localStorage.setLocalStorage('tariffId', tariffId);
     this.calculatedPrice;
     this.details = false;
     this.orderSave = true;
@@ -93,6 +97,10 @@ calculatePriceBackend() {
     }, 2000)
     console.log("order", this.selectedPrice);
     console.log("price", this.calculatedPrice);
+    console.log("priceId", priceId);
+    console.log("tariffId", tariffId);
+    
+
   }
 
 }

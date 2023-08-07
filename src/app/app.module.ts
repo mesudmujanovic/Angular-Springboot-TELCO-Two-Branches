@@ -22,6 +22,7 @@ import { AllRoutersComponent } from './component/routers/all-routers/all-routers
 import { Router } from './component/routers/router/router.component';
 import { RoutersComponent } from './pages/routers/routers.component';
 import { InfoUserComponent } from './pages/info-user/info-user.component';
+import { InfoAndCartComponent } from './component/info-and-cart/info-and-cart.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { InfoUserComponent } from './pages/info-user/info-user.component';
     AllRoutersComponent,
     Router,
     RoutersComponent,
-    InfoUserComponent
+    InfoUserComponent,
+    InfoAndCartComponent
     
   ],
   imports: [

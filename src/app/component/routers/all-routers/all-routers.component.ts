@@ -35,7 +35,9 @@ export class AllRoutersComponent {
   onAddRouter(routers: IRouters) {
     this.selectedRouter = routers;
     const routerPrice = this.selectedRouter.price
-    this.localStorageService.setLocalStorage('routerPrice', routerPrice)
+    const routerId = this.selectedRouter.id
+    this.localStorageService.setLocalStorage('routerPrice', routerPrice);
+    this.localStorageService.setLocalStorage('routerId', routerId);
     this.orderFinish = true;
     const secondstInteval = setInterval(()=>{
      if(this.seconds > 0){
@@ -43,10 +45,12 @@ export class AllRoutersComponent {
      }else{
       this.seconds = 0;
      }
-    },1000)
-setInterval( () =>{
+    },1000);
+
+    const secondIntervalReference = setInterval( () =>{
       this.orderFinish = false
       clearInterval(secondstInteval);
+      clearInterval(secondIntervalReference);
       this.router.navigate(['/info'])
     }, 5000)
   }

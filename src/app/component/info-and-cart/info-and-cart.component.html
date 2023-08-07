@@ -1,0 +1,27 @@
+<div>
+    <p>choose tariff</p>
+    <div *ngIf="choosePrice | async as choosePrice">
+        {{choosePrice.price}} $
+        {{choosePrice.name}} name
+        {{choosePrice.oneTime}} oneTime
+        {{choosePrice.discount}} discount %
+        </div>
+</div>
+
+<div>
+    tariff
+    <div *ngIf="chooseTariff | async as chooseTariff">
+      {{chooseTariff.name}}
+      {{chooseTariff.speed}}
+    </div>
+</div>
+
+<div>
+    Router
+<div *ngIf="choseRouter | async as choseRouter">
+{{choseRouter.price}}$
+{{choseRouter.description}}
+</div>
+</div>
+
+
