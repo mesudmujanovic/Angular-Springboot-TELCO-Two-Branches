@@ -28,7 +28,10 @@ export class TariffsForMainPageComponent {
 calculatePriceBackend() {
   this.calculatorService.calculate(this.price, this.discount).pipe(    
     tap( response =>{
-    this.calculatedPrice = response.calculatedPrice;     
+      console.log("oduzimanje res", response);
+    this.calculatedPrice = response.calculatedPrice;    
+    console.log("irzacunata cena", this.calculatedPrice);
+     
     this.localStorage.setLocalStorage('price', this.calculatedPrice)
     })
   ).subscribe();
@@ -46,9 +49,7 @@ calculatePriceBackend() {
   
    allTariffs(){
     return this.tariffs = this.tariffService.getAllTariffs().pipe(
-      tap( response => {
-        console.log("res",response);
-      })
+      tap( response => {})
     )
   }
 
@@ -95,12 +96,6 @@ calculatePriceBackend() {
     setInterval( () =>{
       this.orderSave = false
     }, 2000)
-    console.log("order", this.selectedPrice);
-    console.log("price", this.calculatedPrice);
-    console.log("priceId", priceId);
-    console.log("tariffId", tariffId);
-    
-
   }
 
 }

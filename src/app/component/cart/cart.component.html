@@ -1,0 +1,26 @@
+<div class="cartContainer">
+    <button class="btnCart" (click)="showCart = !this.showCart"><i class="fas fa-shopping-cart">Cart</i> </button>
+    <div class="cartShop" *ngIf="showCart"  (mouseleave)="hidePopUp1()">
+        <div>
+            <div *ngIf="chooseTariff | async as chooseTariff">
+                <p>Tariff speed: {{chooseTariff.speed}}</p>
+            </div>
+        </div>
+        <div>
+            <div *ngIf="choosePrice | async as choosePrice;">
+                <p>Your tariff cost: {{choosePrice.price}}$</p>
+                <p>Discount - {{choosePrice.discount}}%</p>
+                <p>= All cost for Tariff: {{calculatePriceTariff}} $
+                </p>
+            </div>
+        </div>
+        <div>
+            <div *ngIf="choseRouter | async as choseRouter">
+                <p>Router price: {{choseRouter.price}}$</p>
+            </div>
+        </div>
+        <div>
+           <p style="font-weight: bold;">You must pay {{result}}$</p>
+        </div>
+    </div>
+</div>

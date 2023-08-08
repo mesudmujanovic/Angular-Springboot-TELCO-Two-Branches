@@ -10,12 +10,13 @@ export class CalculatorService {
   constructor( private http: HttpClient ) { }
 
   calculate( price: number, discount: number){
-    const request = { price, discount }
+    const request = { price, discount }    
     return this.http.post<priceCalculate>(`http://localhost:8080/api/calculate`,request)
   }
 
   calculateRouterAndTariff( price: number, discount: number){
     const request = { price, discount }
+    console.log("sabiranje",request);
     return this.http.post<priceCalculate>(`http://localhost:8080/api/calculateAll`,request)
   }
 
