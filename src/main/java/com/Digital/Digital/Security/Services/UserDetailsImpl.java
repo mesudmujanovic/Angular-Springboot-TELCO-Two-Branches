@@ -1,6 +1,6 @@
 package com.Digital.Digital.Security.Services;
 
-import com.Digital.Digital.Entity.User;
+import com.Digital.Digital.Entity.User.UserAuth;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,7 +27,7 @@ public class UserDetailsImpl implements UserDetails {
     private Collection<? extends GrantedAuthority> authorities;
 
 
-    public static UserDetailsImpl build(User user) {
+    public static UserDetailsImpl build(UserAuth user) {
         List<GrantedAuthority> authorities = new ArrayList<>();
 
         return new UserDetailsImpl(

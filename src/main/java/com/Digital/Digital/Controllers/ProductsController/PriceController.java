@@ -4,7 +4,7 @@ package com.Digital.Digital.Controllers.ProductsController;
 import com.Digital.Digital.Infrastructure.Dto.Products.PriceDto;
 import com.Digital.Digital.Infrastructure.Request.ProductsRequest.PriceRequest;
 import com.Digital.Digital.Infrastructure.Response.ProductsResponse.PriceResponse;
-import com.Digital.Digital.Service.Impl.CalculatorDiscountTariffImpl;
+import com.Digital.Digital.Service.ServiceImplemetations.CalculatorImpl.CalculatorDiscountTariffImpl;
 import com.Digital.Digital.Service.ProductsService.PriceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
