@@ -24,6 +24,7 @@ import { RoutersComponent } from './pages/routers/routers.component';
 import { InfoUserComponent } from './pages/info-user/info-user.component';
 import { CartComponent } from './component/cart/cart.component';
 import { InformationOfUserComponent } from './component/information-of-user/information-of-user.component';
+import { FinishPageComponent } from './pages/finish-page/finish-page.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { InformationOfUserComponent } from './component/information-of-user/info
     RoutersComponent,
     InfoUserComponent,
     CartComponent,
-    InformationOfUserComponent
+    InformationOfUserComponent,
+    FinishPageComponent
         
   ],
   imports: [
