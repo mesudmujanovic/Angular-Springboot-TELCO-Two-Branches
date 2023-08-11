@@ -6,6 +6,7 @@ import { City } from '../../Interface/city-interface';
 import { Address } from '../../Interface/address-interface';
 import { Number } from '../../Interface/number-interface';
 import { Router } from '@angular/router';
+import { LocalStorageService } from 'src/app/service/local-storage.service';
 @Component({
   selector: 'app-city',
   templateUrl: './city.component.html',
@@ -24,7 +25,8 @@ export class CityComponent {
 
   constructor(private cityService: CityService,
     private formBuilder: FormBuilder,
-    private router: Router) {
+    private router: Router,
+    private localStorage: LocalStorageService) {
     this.cityForm = this.formBuilder.group({
       name: ['', Validators.required]
     });
@@ -84,9 +86,14 @@ export class CityComponent {
     if (this.selectedCity &&
       this.selectedAddress &&
       this.selectedNumber) {
-      this.selectedCity.name;
-      this.selectedAddress.name;
-      this.selectedNumber.num;
+      const cityAddressNumber = {
+       city:  this.selectedCity.name,
+       addressDtoList:  this.selectedAddress.name,
+       number:  this.selectedNumber.num,
+      }
+      this.localStorage.setLocalStorage('cityAddressNumber',cityAddressNumber)
+      const savelcs = this.localStorage.getLocalStorage('cityAddressNumber');
+      this.cityService.saveCity(savelcs);
       this.router.navigate(['main-page'])
     }
   }

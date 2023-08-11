@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { catchError, of, tap, throwError } from 'rxjs';
 import { IinfoUsers } from 'src/app/Interface/IinfoUsers';
 import { InformationOfUsersService } from 'src/app/service/information-of-users.service';
+import { LocalStorageService } from 'src/app/service/local-storage.service';
 
 @Component({
   selector: 'app-information-of-user',
@@ -18,7 +19,8 @@ export class InformationOfUserComponent {
 
   constructor(private formBuilder: FormBuilder,
     private infoUserService: InformationOfUsersService,
-    private router: Router) {
+    private router: Router,
+    private localStorage: LocalStorageService) {
 
     this.infoUsersForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
@@ -38,8 +40,9 @@ export class InformationOfUserComponent {
       console.log(name, lastName, email, phone);
       this.infoUserService.addUsersInfo(name, lastName, phone, email).pipe(
         tap((response: IinfoUsers) => {
-          console.log("res", response);
           this.router.navigate(['/finish'])
+          const userInfoId = response.id;
+          this.localStorage.setLocalStorage('userInfoId',userInfoId)
         }),
         catchError((error) =>{
           console.error("greska pri slanju");

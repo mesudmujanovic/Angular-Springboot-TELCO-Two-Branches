@@ -16,4 +16,8 @@ export class InformationOfUsersService {
     console.log(name,lastName,email,phone);
     return this.http.post<IinfoUsers>(`${BASE_URL}/usersInfo`,requiredValue);
   }
+
+  getById( userInfoId: number ): Observable<IinfoUsers>{
+    return this.http.get<IinfoUsers>(`${BASE_URL}/getById/${userInfoId}`)
+  }
 }

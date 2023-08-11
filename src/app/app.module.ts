@@ -25,6 +25,10 @@ import { InfoUserComponent } from './pages/info-user/info-user.component';
 import { CartComponent } from './component/cart/cart.component';
 import { InformationOfUserComponent } from './component/information-of-user/information-of-user.component';
 import { FinishPageComponent } from './pages/finish-page/finish-page.component';
+import { FinishComponent } from './component/finish/finish.component';
+import { StoreModule } from '@ngrx/store';
+import { appReducers } from './ngrx-store/reducers/app.reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -47,8 +51,8 @@ import { FinishPageComponent } from './pages/finish-page/finish-page.component';
     InfoUserComponent,
     CartComponent,
     InformationOfUserComponent,
-    FinishPageComponent
-        
+    FinishPageComponent,
+    FinishComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +60,9 @@ import { FinishPageComponent } from './pages/finish-page/finish-page.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot(appReducers),
+    StoreDevtoolsModule.instrument({maxAge:25}),
   ],
   providers: [ ],
   bootstrap: [AppComponent]
