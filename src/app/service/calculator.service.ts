@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { priceCalculate } from './interPrice';
+import { priceCalculate } from '../Interface/interPrice';
 
 @Injectable({
   providedIn: 'root'

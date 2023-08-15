@@ -46,7 +46,6 @@ export class AllRoutersComponent {
       this.seconds = 0;
      }
     },1000);
-
     const secondIntervalReference = setInterval( () =>{
       this.orderFinish = false
       clearInterval(secondstInteval);

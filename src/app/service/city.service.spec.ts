@@ -4,7 +4,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { City } from '../Interface/city-interface';
 
 
-fdescribe('CityService', () => {
+describe('CityService', () => {
   let service: CityService;
   let httpTestingController: HttpTestingController;
 
@@ -27,8 +27,7 @@ fdescribe('CityService', () => {
 
   it('should fetch all verify data', () =>{
     const mockVerifyData: City[] = [
-      { id: 1, name: "Mesud", addressDtoList:[
-        {id:1, name:"ulica", numberDtoList:[]}]},
+      { id: 1, name: "Mesud", addressDtoList:[]},
       { id: 2, name: "Nadi", addressDtoList:[]}
     ];
     service.getAllCityes().subscribe( data => {

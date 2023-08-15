@@ -28,10 +28,7 @@ export class TariffsForMainPageComponent {
 calculatePriceBackend() {
   this.calculatorService.calculate(this.price, this.discount).pipe(    
     tap( response =>{
-      console.log("oduzimanje res", response);
     this.calculatedPrice = response.calculatedPrice;    
-    console.log("irzacunata cena", this.calculatedPrice);
-     
     this.localStorage.setLocalStorage('price', this.calculatedPrice)
     })
   ).subscribe();
@@ -39,9 +36,14 @@ calculatePriceBackend() {
 
   showPriceList(tarifIndex: number, priceIndex: number) {
     this.tariffs.subscribe(tariffs => {
-      const selectedTarif = tariffs[tarifIndex]; // Odabir tarife na koju ste kliknuli
-      this.selectedPrice = selectedTarif.priceList[priceIndex]; // Odabir cijene iz odabrane tarife
-      this.selectedTarifIndex = tarifIndex; // Postavljanje indeksa odabrane tarife
+      console.log("tariffs",tariffs);
+      console.log("priceIndex",priceIndex);
+      const selectedTarif = tariffs[tarifIndex]; 
+      console.log("selectedTariff", selectedTarif);
+      this.selectedPrice = selectedTarif.priceList[priceIndex]; 
+      console.log("selectedPrice", this.selectedPrice);
+      this.selectedTarifIndex = tarifIndex; 
+      console.log("selectedTariffIndex", this.selectedTarifIndex);    
       this.price = this.selectedPrice.price;
       this.discount = this.selectedPrice.discount;
     });
@@ -49,7 +51,8 @@ calculatePriceBackend() {
   
    allTariffs(){
     return this.tariffs = this.tariffService.getAllTariffs().pipe(
-      tap( response => {})
+      tap( response => {
+      })
     )
   }
 

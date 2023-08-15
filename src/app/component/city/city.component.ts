@@ -49,6 +49,7 @@ export class CityComponent {
   allCitys(): Observable<City[]> {
     return this.cityService.getAllCityes().pipe(
       tap(response => {
+        console.log("res",response);
       }),
       catchError(error => {
         return of([]);
@@ -59,8 +60,8 @@ export class CityComponent {
   onCityChange() {
     if (this.selectedCity) {
       this.onSelectedAddressFiled = true;
-      const filter = this.selectedCity.addressDtoList;
-      this.selectedAddress = filter.length > 0 ? filter[this.selectedCity.id] : null;
+      // const filter = this.selectedCity.addressDtoList;
+      // this.selectedAddress = filter.length > 0 ? filter[this.selectedCity.id] : null;
     } else {
       this.selectedAddress = null;
     }
@@ -69,8 +70,6 @@ export class CityComponent {
   onAddressChange() {
     if (this.selectedAddress) {
       this.onSelectedNumberFiled = true
-      const addressAll = this.selectedAddress.numberDtoList;
-      this.selectedNumber = addressAll.length > 0 ? addressAll[this.selectedAddress.id] : null;
     } else {
       this.selectedNumber = null;
     }
@@ -90,7 +89,7 @@ export class CityComponent {
        city:  this.selectedCity.name,
        addressDtoList:  this.selectedAddress.name,
        number:  this.selectedNumber.num,
-      }
+      }      
       this.localStorage.setLocalStorage('cityAddressNumber',cityAddressNumber)
       const savelcs = this.localStorage.getLocalStorage('cityAddressNumber');
       this.cityService.saveCity(savelcs);

@@ -12,7 +12,6 @@ import { TariffService } from 'src/app/service/tariff.service';
 export class TariffsComponent {
 
   tariffs: Observable<ITariff[]>;
-
   currentIndex = 0;
   selectedPrice: any
   selectedTarifIndex: number = -1;

@@ -1,6 +1,4 @@
 import { Action } from "@ngrx/store";
-import { City } from "src/app/Interface/city-interface";
-
 
 export enum _SaveCity{
     AddCity = '[City] Add City'

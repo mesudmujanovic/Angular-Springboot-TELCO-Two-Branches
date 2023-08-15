@@ -45,7 +45,6 @@ export class CartComponent {
     this.showCart = false
   }
  
-
   addTariffInCart(): Observable<any> {
     return this.cartService.adaTariffInCart(this.tariffId).pipe(
       tap((res: ITariff) => {

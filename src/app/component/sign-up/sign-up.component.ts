@@ -33,7 +33,6 @@ export class SignUpComponent {
       usernameLogin: ['', Validators.required],
       passwordLogin: ['', Validators.required]
     })
-
   }
 
   submitFormSignUp() {

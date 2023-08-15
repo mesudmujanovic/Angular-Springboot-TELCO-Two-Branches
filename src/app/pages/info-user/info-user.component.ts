@@ -19,7 +19,6 @@ export class InfoUserComponent {
 
   getTariff(): number{
     return this.tariff = this.localStorage.getLocalStorage('price');
-
   }
 
   ngOnInit(){

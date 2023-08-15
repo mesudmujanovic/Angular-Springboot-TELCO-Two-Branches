@@ -13,6 +13,5 @@ export const userReducer =
                     city: action.payload
                 }
                 break;
-            
         }
   }
