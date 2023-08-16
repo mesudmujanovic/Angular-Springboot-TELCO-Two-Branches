@@ -19,9 +19,9 @@ export class CityComponent {
   selectedCity: City | null;
   selectedAddress: Address | null
   selectedNumber: Number | null;
-  onSelectedCityFiled: boolean = false;
   onSelectedAddressFiled: boolean = false;
   onSelectedNumberFiled: boolean = false;
+  component: { id: number; name: string; addressDtoList: any[]; }[];
 
   constructor(private cityService: CityService,
     private formBuilder: FormBuilder,
@@ -58,11 +58,13 @@ export class CityComponent {
   }
 
   onCityChange() {
+    console.log('onCityChange called');
     if (this.selectedCity) {
       this.onSelectedAddressFiled = true;
-      // const filter = this.selectedCity.addressDtoList;
+          // const filter = this.selectedCity.addressDtoList;
       // this.selectedAddress = filter.length > 0 ? filter[this.selectedCity.id] : null;
     } else {
+      this.onSelectedAddressFiled = false;
       this.selectedAddress = null;
     }
   }
@@ -77,7 +79,6 @@ export class CityComponent {
 
   onNumberChange() {
     if (this.selectedNumber) {
-      console.log(this.selectedNumber);
     }
   }
 
@@ -88,11 +89,10 @@ export class CityComponent {
       const cityAddressNumber = {
        city:  this.selectedCity.name,
        addressDtoList:  this.selectedAddress.name,
-       number:  this.selectedNumber.num,
+       number:  this.selectedNumber.num
       }      
       this.localStorage.setLocalStorage('cityAddressNumber',cityAddressNumber)
       const savelcs = this.localStorage.getLocalStorage('cityAddressNumber');
-      this.cityService.saveCity(savelcs);
       this.router.navigate(['main-page'])
     }
   }

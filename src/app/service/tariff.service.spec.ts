@@ -3,7 +3,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { TariffService } from './tariff.service';
 import { ITariff } from '../Interface/ITariff';
 
-fdescribe('TariffService', () => {
+describe('TariffService', () => {
   let service: TariffService;
   let httpTestingController: HttpTestingController;
 

@@ -13,8 +13,7 @@ import { AddCity } from '../ngrx-store/actions/actions';
 })
 export class CityService {
 
-  constructor(private http: HttpClient,
-              private store: Store<AppState>) { }
+  constructor(private http: HttpClient) { }
 
   addCity(name: string): Observable<City> {
     const city: City = {
@@ -29,12 +28,6 @@ export class CityService {
    return this.http.get<City[]>(`${BASE_URL}/getAllCity`)
   }
 
-  get city(){
-    return this.store.select(getCity);
-  }
-
-  saveCity( city: any ){
-    this.store.dispatch(new AddCity(city))
-  }
+ 
   
 }
