@@ -6,14 +6,16 @@ import { City } from 'src/app/Interface/city-interface';
 import { of } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { LocalStorageService } from 'src/app/service/local-storage.service';
-import { RouterTestingModule } from '@angular/router/testing';
 import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MainPageComponent } from 'src/app/pages/main-page/main-page.component';
 
 fdescribe('CityComponent', () => {
   let component: CityComponent;
   let fixture: ComponentFixture<CityComponent>;
   let cityService: CityService;
   let router: Router;
+  let localStorageService: LocalStorageService
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -21,7 +23,7 @@ fdescribe('CityComponent', () => {
       imports: [
         HttpClientTestingModule,
         FormsModule,
-        RouterTestingModule
+        RouterTestingModule.withRoutes([{ path:'main-page', component: MainPageComponent }])
       ],
       providers: [CityService, LocalStorageService]
     })
@@ -30,6 +32,7 @@ fdescribe('CityComponent', () => {
     fixture = TestBed.createComponent(CityComponent);
     component = fixture.componentInstance;
     cityService = TestBed.inject(CityService);
+    localStorageService = TestBed.inject(LocalStorageService);
     router = TestBed.inject(Router);
     fixture.detectChanges();
   });
@@ -38,6 +41,7 @@ fdescribe('CityComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 
   it('should fecth all citys data', () => {
     const mockCityData: City[] = [
@@ -81,13 +85,19 @@ fdescribe('CityComponent', () => {
     expect(component.onSelectedAddressFiled).toBe(false);
   });
 
-  it('Should navigate to main-page when all required values selected', () => {
-    component.selectedCity = { id: 1, name: 'Selected City', addressDtoList: [] };
-    component.selectedAddress = { id: 1, name: "Selected address", numberDtoList: [] };
-    component.selectedNumber = { id: 1, num: "Selected num" };
-    spyOn(router, 'navigate');
-    component.proveriDostupnost();    
-    expect(router.navigate).toHaveBeenCalledWith(['main-page'])
-  });
+  it('should availiblity proveriDostupnost', () =>{
+    component.selectedCity = { id: 1, name: 'Test City', addressDtoList: [] };
+    component.selectedAddress = { id: 1, name: "Igmanska", numberDtoList: [] };
+    component.selectedNumber  = { id:1, num:"22"};
+    const navigateSpy = spyOn(router, 'navigate');
+    component.proveriDostupnost();
+    const savedData = localStorageService.getLocalStorage('cityAddressNumber');
+    expect(savedData).toEqual({
+      city: 'Test City',
+      addressDtoList: 'Igmanska',
+      number: '22',
+    });  
+    expect(navigateSpy).toHaveBeenCalledWith(['main-page']);
+})
 
 });

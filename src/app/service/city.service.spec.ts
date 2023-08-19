@@ -4,7 +4,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { City } from '../Interface/city-interface';
 
 
-describe('CityService', () => {
+fdescribe('CityService', () => {
   let service: CityService;
   let httpTestingController: HttpTestingController;
 

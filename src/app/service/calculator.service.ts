@@ -16,7 +16,6 @@ export class CalculatorService {
 
   calculateRouterAndTariff( price: number, discount: number){
     const request = { price, discount }
-    console.log("sabiranje",request);
     return this.http.post<priceCalculate>(`http://localhost:8080/api/calculateAll`,request)
   }
 

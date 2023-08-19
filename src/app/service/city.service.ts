@@ -20,12 +20,13 @@ export class CityService {
       id: 0,
       name: name,
       addressDtoList:[]
-    };
+    };    
     return this.http.post<City>(`${BASE_URL}/saveCity`, city);
   }
 
   getAllCityes(): Observable<City[]>{
-   return this.http.get<City[]>(`${BASE_URL}/getAllCity`)
+   return this.http.get<City[]>(`${BASE_URL}/getAllCity`);
+   
   }
 
  

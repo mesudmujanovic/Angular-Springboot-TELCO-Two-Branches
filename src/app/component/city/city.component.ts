@@ -27,6 +27,7 @@ export class CityComponent {
     private formBuilder: FormBuilder,
     private router: Router,
     private localStorage: LocalStorageService) {
+      
     this.cityForm = this.formBuilder.group({
       name: ['', Validators.required]
     });
@@ -99,7 +100,7 @@ export class CityComponent {
 
   ngOnInit(): void {
     this.cityes = this.allCitys();
-    this.cityes.subscribe()
+    this.cityes.subscribe();
   }
 
 }

@@ -50,7 +50,6 @@ export class CartComponent {
       tap((res: ITariff) => {
         const resp = res.priceList;
         this.chooseTariff = of(res);
-        //vrati mi Price koju je client izabrao u tariff
         const filterPriceList: IPrice[] = resp.filter((res) => res.id == this.priceId);
         this.choosePrice = of(filterPriceList[0])
       }),
