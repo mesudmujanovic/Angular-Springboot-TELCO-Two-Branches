@@ -6,6 +6,7 @@ import { CalculatorService } from 'src/app/service/calculator.service';
 import { Observable, of } from 'rxjs';
 import { priceCalculate } from 'src/app/Interface/interPrice';
 import { ITariff } from 'src/app/Interface/ITariff';
+import { IRouters } from 'src/app/Interface/iRouters';
 
 fdescribe('CartComponent', () => {
   let component: CartComponent;
@@ -42,7 +43,7 @@ fdescribe('CartComponent', () => {
     expect(component.result).toBe(calculatedPrice);
   });
 
-  it('should addTariffInCart and return observables', ()=>{
+  it('should add Tariff In Cart and return observables', ()=>{
     const tariff: ITariff ={
       id:1, name:"tariff", speed:"222", priceList:[
       {
@@ -64,6 +65,28 @@ fdescribe('CartComponent', () => {
       result = response;
     });
     expect(result).toEqual(tariff);
+  });
+
+  it('should add Router in cart', ()=>{
+    const router:IRouters = 
+    {  id: 1,
+      description: "routers",
+      price: 222
+    };
+
+    spyOn(cartService, 'adaRouterInCart').and.returnValue(of(router));
+
+    const routerFunction = component.addRouterInCart();
+
+    expect(routerFunction instanceof Observable).toBeTruthy();
+
+    let result: any;
+    routerFunction.subscribe( (routers) =>{
+      result = routers;
+    });
+    
+    expect(result).toEqual(router);
+    
   })
 
 
