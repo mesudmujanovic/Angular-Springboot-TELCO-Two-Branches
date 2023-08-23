@@ -2,8 +2,9 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TariffService } from './tariff.service';
 import { ITariff } from '../Interface/ITariff';
+import { IRouters } from '../Interface/iRouters';
 
-describe('TariffService', () => {
+fdescribe('TariffService', () => {
   let service: TariffService;
   let httpTestingController: HttpTestingController;
 
@@ -42,4 +43,5 @@ describe('TariffService', () => {
     expect(req.request.method).toBe('GET');
     req.flush(tariffMockData);
   });
+
 });
