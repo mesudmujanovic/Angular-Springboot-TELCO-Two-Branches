@@ -8,9 +8,9 @@
         </div>
         <div>
             <div *ngIf="choosePrice | async as choosePrice;">
-                <p>Your tariff cost: {{choosePrice.price}}$</p>
-                <p>Discount - {{choosePrice.discount}}%</p>
-                <p>= All cost for Tariff: {{calculatePriceTariff}} $
+                <p class="price">Your tariff cost: {{choosePrice.price}}$</p>
+                <p class="discount">Discount - {{choosePrice.discount}}%</p>
+                <p class="calculatePriceTariff">= All cost for Tariff: {{calculatePriceTariff}} $
                 </p>
             </div>
         </div>

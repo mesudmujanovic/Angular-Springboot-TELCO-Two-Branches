@@ -75,20 +75,34 @@ fdescribe('CartComponent', () => {
     };
 
     spyOn(cartService, 'adaRouterInCart').and.returnValue(of(router));
-
     const routerFunction = component.addRouterInCart();
-
     expect(routerFunction instanceof Observable).toBeTruthy();
-
     let result: any;
     routerFunction.subscribe( (routers) =>{
       result = routers;
     });
     
     expect(result).toEqual(router);
-    
   })
 
+  it('should click button = !showCart', () =>{
+    const button = fixture.nativeElement.querySelector('.btnCart');
+    expect(component.showCart).toBe(false);
 
-  
+    button.click();
+    fixture.detectChanges();
+    expect(component.showCart).toBe(true);
+  });
+
+  it('should call hidePopUp1() on mouse leave', () => {
+    spyOn(component, 'hidePopUp1');
+    component.showCart = true;
+    fixture.detectChanges();
+    const cartShopElement = fixture.nativeElement.querySelector('.cartShop'); 
+    console.log('cartShopElement:', cartShopElement);
+    component.showCart = true;
+    cartShopElement.dispatchEvent(new Event('mouseleave'));
+    expect(component.hidePopUp1).toHaveBeenCalled();
+  });
+
 });

@@ -16,7 +16,7 @@ export const initialUserState: SalesUserState ={
     user:{
         id:0,
         username:'',
-        password:1
+        password: "1"
     },
     tariff:{
         id:0,
