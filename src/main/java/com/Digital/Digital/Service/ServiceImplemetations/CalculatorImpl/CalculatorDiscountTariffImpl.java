@@ -13,6 +13,11 @@ public class CalculatorDiscountTariffImpl implements CalculatorDiscountTariffSer
     @Autowired
     private CalculatorDiscountRepo calculatorRepo;
 
+    @Autowired
+    public CalculatorDiscountTariffImpl(CalculatorDiscountRepo calculatorRepo) {
+        this.calculatorRepo = calculatorRepo;
+    }
+
     @Override
     public CalculatorDiscountTariffDto getCalculator(CalculatorDiscountTariffDto calculatorDto) {
        int calc = calculatorDto.getPrice() - calculatorDto.getDiscount();

@@ -1,4 +1,4 @@
-package com.Digital.Digital.Service.UserService;
+package com.Digital.Digital.Service.ServiceImplemetations.UserService;
 
 import com.Digital.Digital.Infrastructure.Dto.UserDto.UserAuthDto;
 

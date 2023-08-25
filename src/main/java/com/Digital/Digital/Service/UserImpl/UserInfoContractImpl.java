@@ -1,17 +1,15 @@
-package com.Digital.Digital.Service.ServiceImplemetations.UserImpl;
+package com.Digital.Digital.Service.UserImpl;
 
 import com.Digital.Digital.Entity.User.UserInfoContact;
 import com.Digital.Digital.Infrastructure.Dto.UserDto.UserInfoContactDto;
 import com.Digital.Digital.Infrastructure.Mapper.UserMapper.UserInfoContractDtoMapper;
 import com.Digital.Digital.Infrastructure.Mapper.UserMapper.UserInfoContractMapper;
 import com.Digital.Digital.Repository.UserRepository.UserInfoContactRepository;
-import com.Digital.Digital.Service.UserService.UserInfoContractService;
+import com.Digital.Digital.Service.ServiceImplemetations.UserService.UserInfoContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
-import javax.validation.Validation;
-import javax.validation.ValidatorFactory;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,5 +32,11 @@ public class UserInfoContractImpl implements UserInfoContractService {
     public List<UserInfoContactDto> getAllUsersInfo() {
         List<UserInfoContact> listsUsersInfo = userInfoContactRepository.findAll();
         return listsUsersInfo.stream().map( users -> UserInfoContractDtoMapper.INSTANCE.apply(users)).collect(Collectors.toList());
+    }
+
+    @Override
+    public UserInfoContactDto getById(Long userInfoId) {
+        UserInfoContact userInfoContact = userInfoContactRepository.findById(userInfoId).orElse(null);
+        return UserInfoContractDtoMapper.INSTANCE.apply(userInfoContact);
     }
 }

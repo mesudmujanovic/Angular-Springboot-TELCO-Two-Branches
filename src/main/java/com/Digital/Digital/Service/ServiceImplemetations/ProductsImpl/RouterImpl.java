@@ -15,6 +15,10 @@ import java.util.stream.Collectors;
 @Service
 public class RouterImpl implements RouterService {
 
+    public RouterImpl(RouterRepository routerRepository) {
+        this.routerRepository = routerRepository;
+    }
+
     @Autowired
     RouterRepository routerRepository;
 

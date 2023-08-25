@@ -20,12 +20,9 @@ public class UserAuth {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
-    @Size(min = 3)
     @Column(nullable = false, unique = true)
     private String username;
-    @NotBlank
-    @Size(min = 3)
+
     @Column(nullable = false, unique = false)
     private String password;
 

@@ -3,10 +3,9 @@ package com.Digital.Digital.Controllers.UserController;
 import com.Digital.Digital.Infrastructure.Dto.UserDto.UserInfoContactDto;
 import com.Digital.Digital.Infrastructure.Request.UserRequest.UserInfoContact.UserInfoContactRequest;
 import com.Digital.Digital.Infrastructure.Response.UserResponse.UserInfoContact.UserInfoContactResponse;
-import com.Digital.Digital.Service.UserService.UserInfoContractService;
+import com.Digital.Digital.Service.ServiceImplemetations.UserService.UserInfoContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -33,6 +32,12 @@ public class UserInfoController {
     public ResponseEntity<List<UserInfoContactResponse>> getAllInfo(){
         List<UserInfoContactDto> userInfoContactList = userInfoContractService.getAllUsersInfo();
         return ResponseEntity.ok( userInfoContactList.stream().map(UserInfoContactDto::dtoToResponse).collect(Collectors.toList()));
+    }
+
+    @GetMapping("/getById/{userInfoId}")
+    public ResponseEntity<UserInfoContactResponse> getById( @PathVariable Long userInfoId ){
+        UserInfoContactDto userInfoContactDto = userInfoContractService.getById(userInfoId);
+        return ResponseEntity.ok( UserInfoContactDto.dtoToResponse(userInfoContactDto) );
     }
 }
 

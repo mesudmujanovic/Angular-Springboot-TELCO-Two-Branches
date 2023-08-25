@@ -16,10 +16,8 @@ public class Tariff {
     @Id
     @GeneratedValue( strategy = GenerationType.AUTO)
     private Long id;
-
     private String name;
     private String speed;
-
     @OneToMany( mappedBy = "tariff", fetch = FetchType.LAZY)
     private List<Price> priceList;
 

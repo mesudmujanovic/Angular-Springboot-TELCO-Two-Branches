@@ -1,9 +1,9 @@
-package com.Digital.Digital.Service.ServiceImplemetations.UserImpl;
+package com.Digital.Digital.Service.UserImpl;
 
 import com.Digital.Digital.Entity.User.UserAuth;
 import com.Digital.Digital.Infrastructure.Dto.UserDto.UserAuthDto;
 import com.Digital.Digital.Repository.UserRepository.UserJWTRepository;
-import com.Digital.Digital.Service.UserService.UserAuthService;
+import com.Digital.Digital.Service.ServiceImplemetations.UserService.UserAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

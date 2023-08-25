@@ -7,7 +7,7 @@ import com.Digital.Digital.Infrastructure.Response.UserResponse.UserJwt.JwtRespo
 import com.Digital.Digital.Infrastructure.Response.UserResponse.UserJwt.MessageResponse;
 import com.Digital.Digital.Security.Jwt.JwtUtils;
 import com.Digital.Digital.Security.Services.UserDetailsImpl;
-import com.Digital.Digital.Service.UserService.UserAuthService;
+import com.Digital.Digital.Service.ServiceImplemetations.UserService.UserAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -30,8 +29,6 @@ public class UserAuthController {
 
     @Autowired
     UserAuthService userService;
-    @Autowired
-    PasswordEncoder encoder;
 
     @Autowired
     JwtUtils jwtUtils;
