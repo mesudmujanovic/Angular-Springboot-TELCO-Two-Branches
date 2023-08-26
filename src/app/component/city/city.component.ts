@@ -59,7 +59,6 @@ export class CityComponent {
   }
 
   onCityChange() {
-    console.log('onCityChange called');
     if (this.selectedCity) {
       this.onSelectedAddressFiled = true;
           // const filter = this.selectedCity.addressDtoList;
@@ -83,19 +82,8 @@ export class CityComponent {
     }
   }
 
-  proveriDostupnost() {
-    if (this.selectedCity &&
-      this.selectedAddress &&
-      this.selectedNumber) {
-      const cityAddressNumber = {
-       city:  this.selectedCity.name,
-       addressDtoList:  this.selectedAddress.name,
-       number:  this.selectedNumber.num
-      }      
-      this.localStorage.setLocalStorage('cityAddressNumber',cityAddressNumber)
-      const savelcs = this.localStorage.getLocalStorage('cityAddressNumber');
-      this.router.navigate(['main-page'])
-    }
+  proveriDostupnost(){
+    this.cityService.proveriDostupnost(this.selectedCity, this.selectedAddress, this.selectedNumber)
   }
 
   ngOnInit(): void {

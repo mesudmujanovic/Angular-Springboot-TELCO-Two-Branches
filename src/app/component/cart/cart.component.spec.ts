@@ -98,8 +98,7 @@ fdescribe('CartComponent', () => {
     spyOn(component, 'hidePopUp1');
     component.showCart = true;
     fixture.detectChanges();
-    const cartShopElement = fixture.nativeElement.querySelector('.cartShop'); 
-    console.log('cartShopElement:', cartShopElement);
+    const cartShopElement = fixture.nativeElement.querySelector('.cartShop');
     component.showCart = true;
     cartShopElement.dispatchEvent(new Event('mouseleave'));
     expect(component.hidePopUp1).toHaveBeenCalled();

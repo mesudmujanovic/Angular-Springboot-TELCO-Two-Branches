@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { ITariff } from 'src/app/Interface/ITariff';
-import { CalculatorService } from 'src/app/service/calculator.service';
 import { TariffService } from 'src/app/service/tariff.service';
 
 @Component({
@@ -22,8 +21,6 @@ export class TariffsComponent {
 
   constructor( private tariffService: TariffService ){}
 
-
-  
    allTariffs(){
     return this.tariffs = this.tariffService.getAllTariffs().pipe(
       tap( response => {
@@ -33,7 +30,7 @@ export class TariffsComponent {
   }
 
   ngOnInit(): void {
-    this.allTariffs();
+    this.allTariffs().subscribe();
   }
 
   prevSlide() {
