@@ -27,18 +27,13 @@ public class CalculatorDiscountTariffImplTest {
 
     @Test
     public void testGetCalculator() {
-        CalculatorDiscountTariffDto inputDto = new CalculatorDiscountTariffDto();
-        inputDto.setPrice(100);
-        inputDto.setDiscount(20);
-
-        CalculatorDiscountTariff inputEntity = inputDto.dtoToEntity(inputDto);
-
+        CalculatorDiscountTariffDto calcDto = new CalculatorDiscountTariffDto();
+        calcDto.setPrice(100);
+        calcDto.setDiscount(20);
+        CalculatorDiscountTariff inputEntity = calcDto.dtoToEntity(calcDto);
         when(calculatorRepo.save(any())).thenReturn(inputEntity);
-
-        CalculatorDiscountTariffDto result = calculatorService.getCalculator(inputDto);
-
-        CalculatorDiscountTariffDto expectedResult = inputDto.entityToDto(inputEntity);
-
+        CalculatorDiscountTariffDto result = calculatorService.getCalculator(calcDto);
+        CalculatorDiscountTariffDto expectedResult = calcDto.entityToDto(inputEntity);
         assertEquals(expectedResult, result);
     }
 
@@ -48,15 +43,10 @@ public class CalculatorDiscountTariffImplTest {
         CalculatorDiscountTariffDto inputDto = new CalculatorDiscountTariffDto();
         inputDto.setPrice(100);
         inputDto.setDiscount(20);
-
         CalculatorDiscountTariff inputEntity = inputDto.dtoToEntity(inputDto);
-
         when(calculatorRepo.save(any())).thenReturn(inputEntity);
-
         CalculatorDiscountTariffDto result = calculatorService.getCalculatorFinish(inputDto);
-
         CalculatorDiscountTariffDto expectedResult = inputDto.entityToDto(inputEntity);
-
         assertEquals(expectedResult, result);
     }
 

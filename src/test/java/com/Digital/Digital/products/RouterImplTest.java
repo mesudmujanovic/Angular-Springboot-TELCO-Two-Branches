@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.mockito.Mockito.*;
 import static org.testng.AssertJUnit.assertEquals;
-
 public class RouterImplTest {
 
     private RouterRepository routerRepository;
@@ -35,13 +35,11 @@ public class RouterImplTest {
         router.setPrice(100);
 
         when(routerRepository.save(any())).thenReturn(router);
-
         RouterDto result = routerService.saveRouter(routerDto);
-
         verify(routerRepository, times(1)).save(any());
-        assertEquals(router.getId(), result.getId());
-        assertEquals(router.getDescription(), result.getDescription());
-        assertEquals(router.getPrice(), result.getPrice());
+        assertThat(result.getId()).isEqualTo(router.getId());
+        assertThat(result.getDescription()).isEqualTo(result.getDescription());
+        assertThat(result.getPrice()).isEqualTo(router.getPrice());
     }
 
     @Test
@@ -59,11 +57,8 @@ public class RouterImplTest {
 
         routers.add(router1);
         routers.add(router2);
-
         when(routerRepository.findAll()).thenReturn(routers);
-
         List<RouterDto> result = routerService.getAllRouter();
-
         verify(routerRepository, times(1)).findAll();
         assertEquals(2, result.size());
         assertEquals(router1.getId(), result.get(0).getId());
@@ -79,9 +74,7 @@ public class RouterImplTest {
         router.setPrice(100);
 
         when(routerRepository.findById(routerId)).thenReturn(Optional.of(router));
-
         RouterDto result = routerService.getById(routerId);
-
         verify(routerRepository, times(1)).findById(routerId);
         assertEquals(router.getId(), result.getId());
         assertEquals(router.getDescription(), result.getDescription());

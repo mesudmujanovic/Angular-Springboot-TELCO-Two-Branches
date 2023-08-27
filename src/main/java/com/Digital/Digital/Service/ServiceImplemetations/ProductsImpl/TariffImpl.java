@@ -15,6 +15,10 @@ import java.util.stream.Collectors;
 @Service
 public class TariffImpl implements TariffService {
 
+    public TariffImpl(TariffRepository tariffRepository) {
+        this.tariffRepository = tariffRepository;
+    }
+
     @Autowired
     private TariffRepository tariffRepository;
 
