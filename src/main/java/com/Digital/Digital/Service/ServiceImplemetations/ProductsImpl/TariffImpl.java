@@ -38,8 +38,12 @@ public class TariffImpl implements TariffService {
     @Override
     public TariffDto getByName(String name) {
         Tariff tariff = tariffRepository.findByName(name);
+        if (tariff == null) {
+            return null;
+        }
         return TariffDtoMapper.INSTANCE.apply(tariff);
     }
+
 
     @Override
     public List<TariffDto> getAll() {

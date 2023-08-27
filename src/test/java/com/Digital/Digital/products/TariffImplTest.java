@@ -1,5 +1,4 @@
 package com.Digital.Digital.products;
-
 import com.Digital.Digital.Entity.Products.Tariff;
 import com.Digital.Digital.Infrastructure.Dto.Products.TariffDto;
 import com.Digital.Digital.Repository.ProductsRepository.TariffRepository;
@@ -7,10 +6,7 @@ import com.Digital.Digital.Service.ServiceImplemetations.ProductsImpl.TariffImpl
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.ArrayList;
-
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -43,6 +39,11 @@ public class TariffImplTest {
    when(tariffRepository.save(any())).thenReturn(tariff);
    TariffDto tariffDto1 = tariffImpl.savePrice(tariffDto);
    verify(tariffRepository, times(1)).save(any());
-   assertThat(tariffDto1.getId()).isEqualTo(tariffDto1.getId());
-    }
+   assertThat(tariffDto1.getId()).isEqualTo(tariff.getId());
+   assertThat(tariffDto1.getPriceList()).isEqualTo(tariff.getPriceList());
+   assertThat(tariffDto1.getSpeed()).isEqualTo(tariff.getSpeed());
+    };
+
+
+
 }

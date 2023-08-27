@@ -14,11 +14,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class PriceImpl implements PriceService {
 
-    @Autowired
+
     private PriceRepository priceRepository;
 
-    @Autowired
     private TariffService tariffService;
+
+
+    public PriceImpl(PriceRepository priceRepository, TariffService tariffService) {
+        this.priceRepository = priceRepository;
+        this.tariffService = tariffService;
+    }
+
+
+
+
 
     @Override
     public PriceDto savePrice(PriceDto priceDto, String name) {
@@ -27,6 +36,7 @@ public class PriceImpl implements PriceService {
         Price savePrice = priceRepository.save(price);
         return PriceDtoMapper.INSTANCE.apply(savePrice);
     }
+
 
     @Override
     public PriceDto getPriceId(Long priceId) {

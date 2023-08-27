@@ -10,12 +10,12 @@ public enum TariffDtoMapper implements DtoMapper<TariffDto, Tariff> {
     INSTANCE;
 
     @Override
-    public TariffDto apply(Tariff price) {
-        TariffDto priceDto = new TariffDto();
-        priceDto.setId(price.getId());
-        priceDto.setName(price.getName());
-        priceDto.setSpeed(price.getSpeed());
-        priceDto.setPriceList(price.getPriceList().stream().map(prices -> PriceDtoMapper.INSTANCE.apply(prices)).collect(Collectors.toList()));
-        return priceDto;
+    public TariffDto apply(Tariff tariff) {
+        TariffDto tariffDto = new TariffDto();
+        tariffDto.setId(tariff.getId());
+        tariffDto.setName(tariff.getName());
+        tariffDto.setSpeed(tariff.getSpeed());
+        tariffDto.setPriceList(tariff.getPriceList().stream().map(prices -> PriceDtoMapper.INSTANCE.apply(prices)).collect(Collectors.toList()));
+        return tariffDto;
     }
 }

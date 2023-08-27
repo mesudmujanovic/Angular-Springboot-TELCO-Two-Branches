@@ -25,11 +25,11 @@ public class TariffDto {
 
 
     public static TariffDto requestToDto  (TariffRequest priceRequest){
-        TariffDto priceDto = new TariffDto();
-        priceDto.setName(priceRequest.getName());
-        priceDto.setSpeed(priceRequest.getSpeed());
-        priceDto.setPriceList(priceRequest.getPriceList().stream().map(prices-> PriceDtoMapper.INSTANCE.apply(PriceMapper.INSTANCE.apply(prices))).collect(Collectors.toList()));
-        return priceDto;
+        TariffDto tariffDto = new TariffDto();
+        tariffDto.setName(priceRequest.getName());
+        tariffDto.setSpeed(priceRequest.getSpeed());
+        tariffDto.setPriceList(priceRequest.getPriceList().stream().map(prices-> PriceDtoMapper.INSTANCE.apply(PriceMapper.INSTANCE.apply(prices))).collect(Collectors.toList()));
+        return tariffDto;
     }
 
     public TariffResponse dtoToResponse (){
