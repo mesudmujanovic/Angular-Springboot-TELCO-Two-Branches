@@ -36,14 +36,9 @@ calculatePriceBackend() {
 
   showPriceList(tarifIndex: number, priceIndex: number) {
     this.tariffs.subscribe(tariffs => {
-      console.log("tariffs",tariffs);
-      console.log("priceIndex",priceIndex);
       const selectedTarif = tariffs[tarifIndex]; 
-      console.log("selectedTariff", selectedTarif);
       this.selectedPrice = selectedTarif.priceList[priceIndex]; 
-      console.log("selectedPrice", this.selectedPrice);
       this.selectedTarifIndex = tarifIndex; 
-      console.log("selectedTariffIndex", this.selectedTarifIndex);    
       this.price = this.selectedPrice.price;
       this.discount = this.selectedPrice.discount;
     });

@@ -1,6 +1,6 @@
 import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, of, tap } from 'rxjs';
 import { City } from '../Interface/city-interface';
 import { BASE_URL } from '../const/backend-url';
 import { LocalStorageService } from './local-storage.service';
@@ -41,8 +41,27 @@ export class CityService {
       const savelcs = this.localStorage.getLocalStorage('cityAddressNumber');
       this.router.navigate(['main-page']);
     }
+  };
+
+  onAddressChange(selectedAddress: Address, onSelectedNumberFiled: boolean, selectedNumber: Number | null) {
+    if (selectedAddress) {
+      onSelectedNumberFiled = true;
+    } else {
+      onSelectedNumberFiled = false;
+      selectedNumber = null;
+    }
   }
 
- 
   
+  allCitys(): Observable<City[]> {
+    return this.getAllCityes().pipe(
+      tap(response => {
+        console.log("res",response);
+      }),
+      catchError(error => {
+        return of([]);
+      })
+    )
+  };
+
 }

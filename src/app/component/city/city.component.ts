@@ -33,6 +33,25 @@ export class CityComponent {
     });
   }
 
+  onCityChange() {
+    if (this.selectedCity) {
+      this.onSelectedAddressFiled = true;
+          // const filter = this.selectedCity.addressDtoList;
+      // this.selectedAddress = filter.length > 0 ? filter[this.selectedCity.id] : null;
+    } else {
+      this.onSelectedAddressFiled = false;
+      this.selectedAddress = null;
+    }
+  }
+
+    onAddressChange() {
+    if (this.selectedAddress) {
+      this.onSelectedNumberFiled = true
+    } else {
+      this.selectedNumber = null;
+    }
+  }
+
   onAddCity() {
     if (this.cityForm.valid) {
       const name = this.cityForm.get('name').value;
@@ -47,36 +66,6 @@ export class CityComponent {
     }
   }
 
-  allCitys(): Observable<City[]> {
-    return this.cityService.getAllCityes().pipe(
-      tap(response => {
-        console.log("res",response);
-      }),
-      catchError(error => {
-        return of([]);
-      })
-    )
-  }
-
-  onCityChange() {
-    if (this.selectedCity) {
-      this.onSelectedAddressFiled = true;
-          // const filter = this.selectedCity.addressDtoList;
-      // this.selectedAddress = filter.length > 0 ? filter[this.selectedCity.id] : null;
-    } else {
-      this.onSelectedAddressFiled = false;
-      this.selectedAddress = null;
-    }
-  }
-
-  onAddressChange() {
-    if (this.selectedAddress) {
-      this.onSelectedNumberFiled = true
-    } else {
-      this.selectedNumber = null;
-    }
-  }
-
   onNumberChange() {
     if (this.selectedNumber) {
     }
@@ -87,7 +76,7 @@ export class CityComponent {
   }
 
   ngOnInit(): void {
-    this.cityes = this.allCitys();
+    this.cityes = this.cityService.getAllCityes();
     this.cityes.subscribe();
   }
 
