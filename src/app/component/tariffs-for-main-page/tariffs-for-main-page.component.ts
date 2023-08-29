@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Observable, of, tap } from 'rxjs';
+import { IPrice } from 'src/app/Interface/IPrice-interface';
 import { ITariff } from 'src/app/Interface/ITariff';
 import { CalculatorService } from 'src/app/service/calculator.service';
 import { LocalStorageService } from 'src/app/service/local-storage.service';
@@ -14,10 +15,10 @@ export class TariffsForMainPageComponent {
 
   tariffs: Observable<ITariff[]>;
   currentIndex = 0;
-  selectedPrice: any
+  selectedPrice: any;
   selectedTarifIndex: number = -1;
   details: boolean = false;
-  price: number;
+  price: number ;
   discount: number;
   calculatedPrice: number;
   orderSave: boolean = false;
@@ -35,24 +36,29 @@ calculatePriceBackend() {
 }
 
   showPriceList(tarifIndex: number, priceIndex: number) {
-    this.tariffs.subscribe(tariffs => {
-      const selectedTarif = tariffs[tarifIndex]; 
+    this.tariffs.subscribe(tariffs => {      
+      const selectedTarif = tariffs[tarifIndex];             
       this.selectedPrice = selectedTarif.priceList[priceIndex]; 
-      this.selectedTarifIndex = tarifIndex; 
+      this.selectedTarifIndex = tarifIndex;
       this.price = this.selectedPrice.price;
       this.discount = this.selectedPrice.discount;
     });
   }
   
    allTariffs(){
-    return this.tariffs = this.tariffService.getAllTariffs().pipe(
-      tap( response => {
+    return this.tariffs =  this.tariffService.getAllTariffs().pipe(
+      tap((response: ITariff[]) => {        
+
       })
     )
   }
 
   ngOnInit(): void {
-    this.allTariffs();
+   this.allTariffs().subscribe(
+    as => console.log(as)
+    
+   )
+   
   }
 
   prevSlide() {
