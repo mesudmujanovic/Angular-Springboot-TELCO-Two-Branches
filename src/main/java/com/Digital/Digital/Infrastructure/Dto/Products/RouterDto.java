@@ -2,9 +2,13 @@ package com.Digital.Digital.Infrastructure.Dto.Products;
 
 import com.Digital.Digital.Infrastructure.Request.ProductsRequest.RouterRequest;
 import com.Digital.Digital.Infrastructure.Response.ProductsResponse.RouterResponse;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class RouterDto {
     private Long id;
     private String description;

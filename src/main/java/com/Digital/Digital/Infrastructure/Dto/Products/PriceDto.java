@@ -2,10 +2,14 @@ package com.Digital.Digital.Infrastructure.Dto.Products;
 
 import com.Digital.Digital.Infrastructure.Request.ProductsRequest.PriceRequest;
 import com.Digital.Digital.Infrastructure.Response.ProductsResponse.PriceResponse;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.parameters.P;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PriceDto {
 
     private Long id;
@@ -13,7 +17,7 @@ public class PriceDto {
     private Integer contractDuration;
     private Boolean oneTime;
     private String name;
-    private Double discount;
+    private Integer discount;
 
     private Long tariffId;
 

@@ -20,7 +20,7 @@ public class Price {
     private Integer contractDuration;
     private Boolean oneTime;
     private String name;
-    private Double discount;
+    private Integer discount;
 
     @ManyToOne
     @JoinColumn( name = "tariff_name")

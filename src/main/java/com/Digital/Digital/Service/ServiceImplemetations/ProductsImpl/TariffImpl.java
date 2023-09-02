@@ -23,7 +23,7 @@ public class TariffImpl implements TariffService {
     private TariffRepository tariffRepository;
 
     @Override
-    public TariffDto savePrice(TariffDto tariffDto) {
+    public TariffDto saveTariff(TariffDto tariffDto) {
        Tariff tariff = TariffMapper.INSTANCE.apply(tariffDto);
        Tariff saveTariff = tariffRepository.save(tariff);
        return TariffDtoMapper.INSTANCE.apply(saveTariff);

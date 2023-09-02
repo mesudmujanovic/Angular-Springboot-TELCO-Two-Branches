@@ -20,7 +20,7 @@ public class RouterController {
     RouterService routerService;
 
     @PostMapping("/addRouter")
-    public ResponseEntity<RouterResponse> saveRouter(@RequestBody RouterRequest routerRequest) {
+    public ResponseEntity<RouterResponse> saveRouters(@RequestBody RouterRequest routerRequest) {
         RouterDto routerDto = RouterDto.fromRequestToDto(routerRequest);
         RouterDto routerDtoSave = routerService.saveRouter(routerDto);
         return ResponseEntity.ok(RouterDto.fromDtoToResponse(routerDtoSave));

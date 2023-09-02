@@ -9,7 +9,7 @@ public class PriceResponse {
     private Integer contractDuration;
     private Boolean oneTime;
     private String name;
-    private Double discount;
+    private Integer discount;
 
     private Long tariffId;
 }

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface TariffService {
 
-    public TariffDto savePrice(TariffDto tariffDto);
+    public TariffDto saveTariff(TariffDto tariffDto);
 
     public TariffDto getTariffId( Long tariffId );
 

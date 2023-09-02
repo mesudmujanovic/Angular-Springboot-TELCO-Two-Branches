@@ -37,7 +37,7 @@ public class TariffImplTest {
         tariff.setSpeed("222");
 
    when(tariffRepository.save(any())).thenReturn(tariff);
-   TariffDto tariffDto1 = tariffImpl.savePrice(tariffDto);
+   TariffDto tariffDto1 = tariffImpl.saveTariff(tariffDto);
    verify(tariffRepository, times(1)).save(any());
    assertThat(tariffDto1.getId()).isEqualTo(tariff.getId());
    assertThat(tariffDto1.getPriceList()).isEqualTo(tariff.getPriceList());

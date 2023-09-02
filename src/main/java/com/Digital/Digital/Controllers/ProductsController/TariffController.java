@@ -21,9 +21,9 @@ public class TariffController {
     private TariffService tariffService;
 
     @PostMapping("/saveTariff")
-    private ResponseEntity<TariffResponse> savePrice (@RequestBody TariffRequest priceRequest){
+    public ResponseEntity<TariffResponse> saveTariff (@RequestBody TariffRequest priceRequest){
         TariffDto tariffDto = TariffDto.requestToDto(priceRequest);
-        TariffDto saveTariff = tariffService.savePrice(tariffDto);
+        TariffDto saveTariff = tariffService.saveTariff(tariffDto);
         return ResponseEntity.ok( saveTariff.dtoToResponse() );
     }
 

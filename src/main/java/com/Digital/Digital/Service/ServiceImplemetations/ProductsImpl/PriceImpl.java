@@ -25,10 +25,6 @@ public class PriceImpl implements PriceService {
         this.tariffService = tariffService;
     }
 
-
-
-
-
     @Override
     public PriceDto savePrice(PriceDto priceDto, String name) {
         Price price = PriceMapper.INSTANCE.apply(priceDto);

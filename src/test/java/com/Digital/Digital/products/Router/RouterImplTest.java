@@ -1,4 +1,4 @@
-package com.Digital.Digital.products;
+package com.Digital.Digital.products.Router;
 import com.Digital.Digital.Entity.Products.Router;
 import com.Digital.Digital.Infrastructure.Dto.Products.RouterDto;
 import com.Digital.Digital.Repository.ProductsRepository.RouterRepository;
