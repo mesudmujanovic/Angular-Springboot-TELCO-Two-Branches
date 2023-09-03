@@ -1,4 +1,4 @@
-package com.Digital.Digital.products;
+package com.Digital.Digital.products.Tariff;
 import com.Digital.Digital.Controllers.ProductsController.TariffController;
 import com.Digital.Digital.Infrastructure.Dto.Products.PriceDto;
 import com.Digital.Digital.Infrastructure.Dto.Products.TariffDto;
@@ -16,6 +16,7 @@ import java.util.List;
 import static org.mockito.Mockito.*;
 import static org.assertj.core.api.Assertions.assertThat;
 public class TariffControllerTest {
+
     @InjectMocks
     private TariffController tariffController;
 
@@ -26,7 +27,6 @@ public class TariffControllerTest {
     public void setUp(){
         MockitoAnnotations.initMocks(this);
     }
-
 
     @Test
     public void testSaveTariff() {
@@ -47,17 +47,15 @@ public class TariffControllerTest {
         tariffDto.setPriceList(priceList);
 
         when(tariffService.saveTariff(any())).thenReturn(tariffDto);
-
         ResponseEntity<TariffResponse> responseEntity = tariffController.saveTariff(tariffRequest);
-
         assertThat(responseEntity.getStatusCodeValue()).isEqualTo(200);
-
         TariffResponse tariffResponse = responseEntity.getBody();
+
         assertThat(tariffResponse).isNotNull();
-        assertThat(tariffResponse.getId()).isEqualTo(1L);
-        assertThat(tariffResponse.getName()).isEqualTo("Tariff 1");
-        assertThat(tariffResponse.getSpeed()).isEqualTo("100 Mbps");
-        assertThat(tariffResponse.getPriceList()).isEqualTo(priceList);
+        assertThat(tariffResponse.getId()).isEqualTo(tariffDto.getId());
+        assertThat(tariffResponse.getName()).isEqualTo(tariffDto.getName());
+        assertThat(tariffResponse.getSpeed()).isEqualTo(tariffDto.getSpeed());
+        assertThat(tariffResponse.getPriceList()).isEqualTo(tariffDto.getPriceList());
         verify(tariffService, times(1)).saveTariff(any());
     }
 }

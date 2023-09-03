@@ -3,9 +3,13 @@ package com.Digital.Digital.Infrastructure.Dto.AvailibilityDto;
 
 import com.Digital.Digital.Infrastructure.Request.Availibility.NumberRequest;
 import com.Digital.Digital.Infrastructure.Response.AvailibilityResponse.NumberResponse;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class NumberDto {
 
     private Long id;

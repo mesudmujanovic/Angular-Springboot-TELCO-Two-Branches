@@ -16,8 +16,12 @@ import java.util.stream.Collectors;
 @CrossOrigin("*")
 public class RouterController {
 
-    @Autowired
-    RouterService routerService;
+
+   public RouterService routerService;
+
+    public RouterController(RouterService routerService) {
+        this.routerService = routerService;
+    }
 
     @PostMapping("/addRouter")
     public ResponseEntity<RouterResponse> saveRouters(@RequestBody RouterRequest routerRequest) {

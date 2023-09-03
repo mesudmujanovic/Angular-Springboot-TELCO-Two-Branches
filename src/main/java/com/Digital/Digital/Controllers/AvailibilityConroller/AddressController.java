@@ -23,9 +23,8 @@ public class AddressController {
     @Autowired
     AddressService addressService;
 
-
     @PostMapping("/saveAddress/city/{cityId}")
-    private ResponseEntity<AddressResponse> saveAddress(@RequestBody AddressRequest addressRequest,
+    public ResponseEntity<AddressResponse> saveAddress(@RequestBody AddressRequest addressRequest,
                                                         @PathVariable Long cityId) {
         AddressDto addressDto = AddressDto.addressRequestToDto(addressRequest);
         AddressDto saveAddress = addressService.saveAddress(addressDto, cityId);

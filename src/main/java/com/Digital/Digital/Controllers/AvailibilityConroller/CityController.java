@@ -5,6 +5,7 @@ import com.Digital.Digital.Infrastructure.Dto.AvailibilityDto.CityDto;
 import com.Digital.Digital.Infrastructure.Request.Availibility.CityRequest;
 import com.Digital.Digital.Infrastructure.Response.AvailibilityResponse.CityResponse;
 import com.Digital.Digital.Service.AvailabilityService.CityService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,11 +17,8 @@ import java.util.stream.Collectors;
 @RequestMapping("/api")
 public class CityController {
 
-    private final CityService cityService;
-
-    public CityController(CityService cityService) {
-        this.cityService = cityService;
-    }
+    @Autowired
+    CityService cityService;
 
     @PostMapping("/saveCity")
     public ResponseEntity<CityResponse> saveCity(@RequestBody CityRequest cityRequest){

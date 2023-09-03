@@ -1,4 +1,4 @@
-package com.Digital.Digital.products;
+package com.Digital.Digital.products.Tariff;
 import com.Digital.Digital.Entity.Products.Tariff;
 import com.Digital.Digital.Infrastructure.Dto.Products.TariffDto;
 import com.Digital.Digital.Repository.ProductsRepository.TariffRepository;
