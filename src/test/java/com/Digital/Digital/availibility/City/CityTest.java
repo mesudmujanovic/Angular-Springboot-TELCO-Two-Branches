@@ -1,4 +1,4 @@
-package com.Digital.Digital.availibility;
+package com.Digital.Digital.availibility.City;
 
 import com.Digital.Digital.Entity.Availibility.City;
 import com.Digital.Digital.Infrastructure.Dto.AvailibilityDto.CityDto;

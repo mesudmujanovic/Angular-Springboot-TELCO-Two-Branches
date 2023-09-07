@@ -1,17 +1,13 @@
 package com.Digital.Digital;
-
 import com.Digital.Digital.Entity.CalculatorDiscountTariff;
 import com.Digital.Digital.Infrastructure.Dto.CalculatorDiscountTariffDto;
 import com.Digital.Digital.Repository.CalculatorRepository.CalculatorDiscountRepo;
 import com.Digital.Digital.Service.CalculatorService.CalculatorDiscountTariffService;
 import com.Digital.Digital.Service.ServiceImplemetations.CalculatorImpl.CalculatorDiscountTariffImpl;
 import org.junit.Before;
-
 import static org.mockito.Mockito.mock;
-
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
-
 import org.junit.Test;
 
 public class CalculatorDiscountTariffImplTest {
@@ -37,7 +33,6 @@ public class CalculatorDiscountTariffImplTest {
         assertEquals(expectedResult, result);
     }
 
-
     @Test
     public void testGetCalculatorFinish() {
         CalculatorDiscountTariffDto inputDto = new CalculatorDiscountTariffDto();
@@ -49,5 +44,4 @@ public class CalculatorDiscountTariffImplTest {
         CalculatorDiscountTariffDto expectedResult = inputDto.entityToDto(inputEntity);
         assertEquals(expectedResult, result);
     }
-
 }

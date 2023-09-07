@@ -8,8 +8,6 @@ import java.util.List;
 @Data
 public class AddressRequest {
 
-    private Long id;
-
     private String name;
 
     private List<NumberDto> numberDtoList;

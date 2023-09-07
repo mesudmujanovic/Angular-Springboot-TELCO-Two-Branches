@@ -4,8 +4,6 @@ import lombok.Data;
 
 @Data
 public class NumberRequest {
-    private Long id;
-
     private String num;
 
 }

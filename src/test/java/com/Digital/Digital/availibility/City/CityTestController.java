@@ -1,5 +1,4 @@
-package com.Digital.Digital.availibility;
-
+package com.Digital.Digital.availibility.City;
 import com.Digital.Digital.Controllers.AvailibilityConroller.CityController;
 import com.Digital.Digital.Infrastructure.Dto.AvailibilityDto.AddressDto;
 import com.Digital.Digital.Infrastructure.Dto.AvailibilityDto.CityDto;
@@ -60,5 +59,5 @@ public class CityTestController {
         assertThat(cityResponse.getName()).isEqualTo(cityDto.getName());
         assertThat(cityResponse.getAddressDtoList()).isEqualTo(cityDto.getAddressDtoList());
         verify(cityService, times(1)).createCity(any());
-    }
+    };
 }

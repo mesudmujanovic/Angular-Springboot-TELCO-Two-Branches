@@ -7,7 +7,6 @@ import java.util.List;
 
 @Data
 public class CityRequest {
-
     private String name;
 
     private List<AddressDto> addressDtoList;

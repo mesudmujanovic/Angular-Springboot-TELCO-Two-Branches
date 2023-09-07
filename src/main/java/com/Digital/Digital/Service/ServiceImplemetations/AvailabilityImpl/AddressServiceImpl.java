@@ -15,16 +15,14 @@ import java.util.stream.Collectors;
 @Service
 public class AddressServiceImpl implements AddressService {
 
-    @Autowired
-    private AddressRepository addressRepository;
+    private final   AddressRepository addressRepository;
 
-    @Autowired
-    private AddressService addressService;
+    private final   CityService cityService;
 
-
-    @Autowired
-    private CityService cityService;
-
+    public AddressServiceImpl(AddressRepository addressRepository,CityService cityService) {
+        this.addressRepository = addressRepository;
+        this.cityService = cityService;
+    }
 
     @Override
     public AddressDto saveAddress(AddressDto addressDto, Long cityId) {

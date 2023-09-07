@@ -22,8 +22,7 @@ public class NumberController {
     }
 
     @PostMapping("/saveNumber/{addressId}")
-    private ResponseEntity<NumberResponse> saveNumber(@RequestBody NumberRequest numberRequest,
-                                                      @PathVariable Long addressId){
+    public ResponseEntity<NumberResponse> saveNumber(@RequestBody NumberRequest numberRequest, @PathVariable Long addressId){
         NumberDto numberDto = NumberDto.fromRequestToDto(numberRequest);
         NumberDto saveNumber = numberService.saveNumber(numberDto, addressId);
         return ResponseEntity.ok( saveNumber.dtoToResponse() );

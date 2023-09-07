@@ -1,4 +1,4 @@
-package com.Digital.Digital.availibility;
+package com.Digital.Digital.availibility.Address;
 
 import com.Digital.Digital.Controllers.AvailibilityConroller.AddressController;
 import com.Digital.Digital.Infrastructure.Dto.AvailibilityDto.AddressDto;
@@ -39,7 +39,6 @@ public class AddressTestCotnroller {
         );
 
         AddressRequest addressRequest = new AddressRequest();
-        addressRequest.setId(1L);
         addressRequest.setName("address");
         addressRequest.setNumberDtoList(listNumber);
 
@@ -53,7 +52,6 @@ public class AddressTestCotnroller {
         AddressResponse addressResponse = addressResponseRE.getBody();
 
         assertThat(addressResponse).isNotNull();
-        assertThat(addressResponse.getId()).isEqualTo(addressDto.getId());
         assertThat(addressResponse.getName()).isEqualTo(addressDto.getName());
         assertThat(addressResponse.getNumberDtoList()).isEqualTo(addressDto.getNumberDtoList());
     };

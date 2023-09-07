@@ -28,7 +28,6 @@ public class AddressDto {
 
     public static AddressDto addressRequestToDto(AddressRequest addressRequest){
         AddressDto addressDto = new AddressDto();
-        Optional.ofNullable(addressRequest.getId()).ifPresent(addressDto::setId);
         addressDto.setName(addressRequest.getName());
         addressDto.setNumberDtoList(addressRequest.getNumberDtoList().stream().map( numbers -> NumberDtoMapper.INSTANCE.apply(NumberMapper.INSTANCE.apply(numbers))).collect(Collectors.toList()));
         return addressDto;

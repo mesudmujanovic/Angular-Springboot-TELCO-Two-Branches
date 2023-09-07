@@ -1,7 +1,6 @@
 package com.Digital.Digital.Infrastructure.Dto.AvailibilityDto;
 
 
-import com.Digital.Digital.Entity.Availibility.Address;
 import com.Digital.Digital.Infrastructure.Mapper.AvailibilityDtoMapper.AddressDtoMapper;
 import com.Digital.Digital.Infrastructure.Mapper.AvailibilityDtoMapper.AddressMapper;
 import com.Digital.Digital.Infrastructure.Request.Availibility.CityRequest;
@@ -11,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Data
